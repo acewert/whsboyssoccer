@@ -77,11 +77,8 @@ WSGI_APPLICATION = 'whsboyssoccer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'acewert.mysql.pythonanywhere-services.com',
-        'USER': 'acewert',
-        'PASSWORD': 'mysqlwhs',
-        'NAME': 'acewert$whs',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -125,6 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = '/home/acewert/whsboyssoccer/static'
+
 
 try:
     from .local_settings import *
