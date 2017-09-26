@@ -22,6 +22,10 @@ h1 {
     background: #ffffff;
 }
 
+.navbar-collapse {
+    border-top: 0;
+}
+
 .navbar-default .navbar-nav > li > a {
     color: #333333;
     font-weight: 600;
@@ -38,9 +42,9 @@ h1 {
 }
 
 #shield {
-    height: 50px;
+    height: 70px;
     margin-top: -20px;
-    width: 50px;
+    width: 70px;
 }
 
 #container {

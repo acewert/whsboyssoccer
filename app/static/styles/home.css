@@ -1,6 +1,8 @@
-#shield {
-    height: 175px;
-    width: 175px;
+@media(min-width: 768px) {
+    #shield {
+        height: 175px;
+        width: 175px;
+    }
 }
 
 #splash-bg {
