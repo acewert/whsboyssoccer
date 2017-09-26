@@ -18,6 +18,7 @@
     background-image: url('/static/images/splash.jpg');
     background-position: center;
     background-size: cover;
+        -webkit-clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
     filter: grayscale(100%);
     height: calc(100% + 30px);
