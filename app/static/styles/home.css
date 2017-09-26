@@ -1,8 +1,55 @@
-#banner {
-	filter: grayscale(100%);
-	max-width: 100%;
+#shield {
+    height: 175px;
+    width: 175px;
+}
+
+#splash-bg {
+    background: #ffffff;
+    height: 60%;
+}
+
+#splash-bg .col-xs-12 {
+    height: 100%;
+}
+
+#splash {
+    background-image: url('/static/images/splash.jpg');
+    background-position: center;
+    background-size: cover;
+    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+    filter: grayscale(100%);
+    height: calc(100% + 30px);
+}
+
+#senior-spotlight {
+    background: #ffffff;
+    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+    padding-bottom: 50px;
+    padding-top: 80px;
+}
+
+#become-a-sponsor-bg {
+    background: #ffffff;
 }
 
 #become-a-sponsor {
-	background: #eeeeee;
+    background: #eeeeee;
+    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+    padding-bottom: 50px;
+    padding-top: 80px;
+}
+
+#become-a-sponsor-button {
+    background: #f32a2c;
+    border-color: #c30303;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+#become-a-sponsor-button:hover {
+    background: #db1718;
+}
+
+#follow-us-bg {
+    background: #eeeeee;
 }

@@ -1,0 +1,33 @@
+#varsity-bg {
+    background: #ffffff;
+}
+
+#varsity {
+    background: #eeeeee;
+    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+    padding-top: 30px;
+}
+
+#jv-bg {
+    background: #eeeeee;
+}
+
+#jv {
+    background: #ffffff;
+    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+    padding-top: 30px;
+}
+
+#freshman-bg {
+    background: #ffffff;
+}
+
+#freshman {
+    background: #eeeeee;
+    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
+    padding-top: 30px;
+}
+
+#follow-us-bg {
+    background: #eeeeee;
+}
