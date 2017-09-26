@@ -5,3 +5,7 @@ body {
 .navbar {
 	margin-bottom: 0;
 }
+
+#follow-us {
+	clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+}
