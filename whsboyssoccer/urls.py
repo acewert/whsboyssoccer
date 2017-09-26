@@ -16,6 +16,16 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from app import views
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.home, name='home'),
+    url(r'^roster/$', views.roster, name='roster'),
+    url(r'^schedule/$', views.schedule, name='schedule'),
+    url(r'^coaches/$', views.coaches, name='coaches'),
+    url(r'^history/$', views.history, name='history'),
+    url(r'^photos/$', views.photos, name='photos'),
+    url(r'^sponsor/$', views.sponsor, name='sponsor'),
 ]

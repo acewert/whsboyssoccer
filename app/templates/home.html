@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+	<link href="{% static 'styles/home.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<img id="banner" src="{% static 'images/banner.jpg' %}">
+	</div>
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<h1>Senior Spotlight</h1>
+		</div>
+	</div>
+    <div class="row" id="become-a-sponsor">
+        <div class="col-xs-12 text-center">
+            <h1>Become a Sponsor</h1>
+            <p>Support the Waco High Boys Soccer Program and help us become the premiere soccer program in the state.</p>
+            <p><a class="btn btn-danger" href="{% url 'sponsor' %}">Click Here for Sponsorship Info</a></p>
+        </div>
+    </div>
+{% endblock %}
