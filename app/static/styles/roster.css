@@ -4,8 +4,6 @@
 
 #varsity {
     background: #eeeeee;
-    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
-    padding-top: 30px;
 }
 
 #jv-bg {
@@ -14,8 +12,6 @@
 
 #jv {
     background: #ffffff;
-    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
-    padding-top: 30px;
 }
 
 #freshman-bg {
@@ -24,8 +20,6 @@
 
 #freshman {
     background: #eeeeee;
-    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
-    padding-top: 30px;
 }
 
 #follow-us-bg {
