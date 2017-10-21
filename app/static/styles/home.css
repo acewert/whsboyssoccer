@@ -29,12 +29,5 @@
 }
 
 #sponsor-button {
-    background: #f32a2c;
-    border-color: #c30303;
-    color: #ffffff;
     margin-top: 20px;
-}
-
-#sponsor-button:hover {
-    background: #db1718;
 }

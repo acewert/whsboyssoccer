@@ -3,6 +3,11 @@ from django.shortcuts import render
 from .models import *
 
 
+__all__ = [
+    'home', 'roster', 'schedule', 'coaches', 'history', 'photos', 'sponsor',
+]
+
+
 def home(request):
     return render(request, 'home.html')
 
@@ -26,7 +31,11 @@ def schedule(request):
 
 
 def coaches(request):
-    return render(request, 'coaches.html')
+    coaches = Coach.objects.order_by('ordering')
+
+    context = {'coaches': coaches}
+
+    return render(request, 'coaches.html', context)
 
 
 def history(request):

@@ -67,7 +67,8 @@ html, body {
 }
 
 .navbar-nav > li > a:hover {
-    background: none;
+    background: #f6f6f6;
+    border-radius: 5px;
     color: #c30303;
 }
 
@@ -124,6 +125,18 @@ html, body {
 .right-section-title {
     margin-top: 0;
     text-align: right;
+}
+
+.btn-default {
+    background: #f32a2c;
+    border-color: #c30303;
+    color: #ffffff;
+}
+
+.btn-default:hover {
+    background: #db1718;
+    border-color: #c30303;
+    color: #ffffff;
 }
 
     @media(min-width: 768px) {

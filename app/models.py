@@ -1,7 +1,23 @@
 from django.db import models
 
 
-__all__ = ['Player']
+__all__ = ['Coach', 'Player']
+
+
+class Coach(models.Model):
+    class Meta:
+        verbose_name_plural = 'coaches'
+
+    first_name = models.CharField(max_length=32)
+    last_name = models.CharField(max_length=32)
+    title = models.CharField(max_length=64)
+    bio = models.TextField(blank=True)
+    email_address = models.EmailField(blank=True)
+    ordering = models.IntegerField()
+
+    def __str__(self):
+        return '{0} {1} ({2})'.format(self.first_name, self.last_name,
+                                      self.title)
 
 
 class Player(models.Model):

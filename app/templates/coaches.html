@@ -1,1 +1,27 @@
 {% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'styles/coaches.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+    {% for coach in coaches %}
+        <div class="row {% if forloop.first %}first-section{% else %}slant-clip{% endif %} before-slant-clip {% cycle 'odd-section' 'even-section' %}">
+            <div class="col-xs-12">
+                <h2 class="section-title right-section-title">{{ coach.first_name }} {{ coach.last_name }}</h2>
+                <h4 class="section-title right-section-title">{{ coach.title }}</h4>
+                <p class="bio">{{ coach.bio }}</p>
+                {% if coach.email_address %}
+                    <p class="text-center">
+                        <a class="btn btn-default btn-lg email-btn" href="mailto:{{ coach.email_address }}">
+                            <i class="fa fa-envelope-o fa-fw"></i>
+                            Email Coach {{ coach.last_name }}
+                        </a>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
