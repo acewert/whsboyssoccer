@@ -7,30 +7,20 @@
 {% endblock %}
 
 {% block body %}
-    <div class="row" id="splash-bg">
+    <div class="row before-slant-clip" id="splash"></div>
+    <div class="row before-slant-clip slant-clip" id="senior-spotlight">
         <div class="col-xs-12">
-            <div class="row slant-clip" id="splash"></div>
+            <h1 class="section-title">SENIOR SPOTLIGHT</h1>
+            <h4>[coming soon]</h4>
         </div>
     </div>
-    <div class="row" id="senior-spotlight-bg">
+    <div class="row before-slant-clip slant-clip" id="become-a-sponsor">
         <div class="col-xs-12">
-            <div class="row slant-clip" id="senior-spotlight">
-                <div class="col-xs-12 text-center">
-                    <h1>SENIOR SPOTLIGHT</h1>
-                    <h4>[coming soon]</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row" id="become-a-sponsor-bg">
-        <div class="col-xs-12">
-            <div class="row slant-clip" id="become-a-sponsor">
-                <div class="col-xs-12 text-center">
-                    <h1>BECOME A SPONSOR</h1>
-                    <p>Support the Waco High Boys Soccer Program and help us become the premiere soccer program in the state.</p>
-                    <p><a class="btn btn-lg" href="{% url 'sponsor' %}" id="become-a-sponsor-button">Click Here for Sponsorship Info</a></p>
-                </div>
-            </div>
+            <h1 class="section-title">BECOME A SPONSOR</h1>
+            <p class="text-center">Support the Waco High Boys Soccer Program and help us become the premiere soccer program in the state.</p>
+            <p class="text-center">
+                <a class="btn btn-lg" href="{% url 'sponsor' %}" id="become-a-sponsor-button">Click Here for Sponsorship Info</a>
+            </p>
         </div>
     </div>
 {% endblock %}

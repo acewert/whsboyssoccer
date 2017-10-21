@@ -1,26 +1,19 @@
-#splash-bg {
-    background: #ffffff;
-    height: 60%;
-}
-
-#splash-bg .col-xs-12 {
-    height: 100%;
-}
-
 #splash {
     background-image: url('/static/images/splash.jpg');
     background-position: center;
     background-size: cover;
     filter: grayscale(100%);
-    height: calc(100% + 30px);
-    padding-bottom: 0;
+    height: calc(100% - 175px);
+    min-height: 400px;
 }
+
+	@media(min-width: 768px) {
+		#splash {
+			min-height: 425px;
+		}
+	}
 
 #senior-spotlight {
-    background: #ffffff;
-}
-
-#become-a-sponsor-bg {
     background: #ffffff;
 }
 
