@@ -5,21 +5,43 @@ html, body {
 h1 {
     color: #c30303;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+}
+
+/* LOGO */
+
+#logo {
+    left: 20px;
+    position: absolute;
+    top: 10px;
+    z-index: 2000;
+}
+
+#logo img {
+    height: 75px;
+    width: 75px;
+}
+
+    @media(min-width: 768px) {
+        #logo img {
+            height: 150px;
+            width: 150px;
+        }
+    }
+
+/* NAVBAR */
+
+.navbar {
+    background: #ffffff;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), 0 100%);
+    margin-bottom: 0;
+    padding-bottom: 25px;
+    padding-top: 20px;
 }
 
 .navbar-static-top {
     border-width: 0;
-}
-
-@media(min-height: 768px) {
-    .navbar-right {
-        margin-right: 0;
-    }
-}
-
-.navbar-default {
-    background: #ffffff;
 }
 
 .navbar-collapse {
@@ -27,28 +49,47 @@ h1 {
 }
 
 .navbar-toggle {
-    margin-bottom: 16px;
+    border-color: #dddddd;
+    margin-bottom: 20px;
     margin-top: 0;
 }
 
-.navbar-nav {
-    margin: 27.5px -15px 7.5px -15px;
+.navbar-toggle .icon-bar {
+    background-color: #888888;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-nav {
+    margin: 0;
+}
+
+.navbar-nav > li {
+    text-align: center;
+}
+
+.navbar-nav > li > a {
     color: #333333;
+    font-size: 1.2em;
     font-weight: 600;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
+.navbar-nav > li > a:hover {
     background: none;
     color: #c30303;
 }
 
-.navbar {
-    margin-bottom: 0;
-    margin-top: 20px;
-}
+    @media(min-width: 768px) {
+        .navbar {
+                -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 0 100%);
+            padding-bottom: 55px;
+        }
+
+        .navbar-right {
+            margin-right: 5px;
+        }
+    }
+
+/* GENERAL */
 
 .slant-clip {
         -webkit-clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
@@ -57,23 +98,19 @@ h1 {
     padding-top: 80px;
 }
 
-#shield {
-    height: 70px;
-    margin-top: -20px;
-    width: 70px;
-}
-
-@media(min-width: 768px) {
-    #shield {
-        height: 175px;
-        width: 175px;
-    }
-}
-
 #container {
     background: #c30303;
     height: 100%;
+    margin-top: -25px;
 }
+
+    @media(min-width: 768px) {
+        #container {
+            margin-top: -50px;            
+        }
+    }
+
+/* FOOTER */
 
 #follow-us {
     background: #c30303;
