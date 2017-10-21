@@ -138,6 +138,14 @@ h1.section-title {
     text-align: center;
 }
 
+h2.section-title {
+    text-align: right;
+}
+
+.right-section-title {
+    margin-top: 0;
+}
+
 /* FOOTER */
 
 #follow-us {

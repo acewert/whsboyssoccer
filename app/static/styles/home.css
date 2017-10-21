@@ -3,7 +3,7 @@
     background-position: center;
     background-size: cover;
     filter: grayscale(100%);
-    height: calc(100% - 175px);
+    height: calc(100vh - 175px);
     min-height: 400px;
 }
 
