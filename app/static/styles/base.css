@@ -115,6 +115,11 @@ html, body {
     padding-top: 50px;
 }
 
+.inner-container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
 .section-title {
     color: #c30303;
     font-weight: 600;

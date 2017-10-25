@@ -9,77 +9,83 @@
 {% block body %}
     <div class="row first-section before-slant-clip" id="varsity">
         <div class="col-xs-12">
-            <h2 class="section-title right-section-title">Varsity Roster</h2>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Class</th>
-                        <th>Position</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for player in varsity %}
+            <div class="inner-container">
+                <h2 class="section-title right-section-title">Varsity Roster</h2>
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td>{{ player.number }}</td>
-                            <td>{{ player.first_name }} {{ player.last_name }}</td>
-                            <td>{{ player.get_klass_display }}</td>
-                            <td>{{ player.get_position_display }}</td>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Position</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for player in varsity %}
+                            <tr>
+                                <td>{{ player.number }}</td>
+                                <td>{{ player.first_name }} {{ player.last_name }}</td>
+                                <td>{{ player.get_klass_display }}</td>
+                                <td>{{ player.get_position_display }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="row before-slant-clip slant-clip" id="jv">
         <div class="col-xs-12">
-            <h2 class="section-title right-section-title">JV Roster</h2>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Class</th>
-                        <th>Position</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for player in jv %}
+            <div class="inner-container">
+                <h2 class="section-title right-section-title">JV Roster</h2>
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td>{{ player.number }}</td>
-                            <td>{{ player.first_name }} {{ player.last_name }}</td>
-                            <td>{{ player.get_klass_display }}</td>
-                            <td>{{ player.get_position_display }}</td>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Position</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for player in jv %}
+                            <tr>
+                                <td>{{ player.number }}</td>
+                                <td>{{ player.first_name }} {{ player.last_name }}</td>
+                                <td>{{ player.get_klass_display }}</td>
+                                <td>{{ player.get_position_display }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="row before-slant-clip slant-clip" id="freshman">
         <div class="col-xs-12">
-            <h2 class="section-title right-section-title">Freshman Roster</h2>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Class</th>
-                        <th>Position</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for player in freshman %}
+            <div class="inner-container">
+                <h2 class="section-title right-section-title">Freshman Roster</h2>
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td>{{ player.number }}</td>
-                            <td>{{ player.first_name }} {{ player.last_name }}</td>
-                            <td>{{ player.get_klass_display }}</td>
-                            <td>{{ player.get_position_display }}</td>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Position</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for player in freshman %}
+                            <tr>
+                                <td>{{ player.number }}</td>
+                                <td>{{ player.first_name }} {{ player.last_name }}</td>
+                                <td>{{ player.get_klass_display }}</td>
+                                <td>{{ player.get_position_display }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 {% endblock %}
