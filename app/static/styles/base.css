@@ -2,24 +2,40 @@ html, body {
     height: 100%;
 }
 
-h1 {
-    color: #c30303;
-    font-weight: 600;
-    margin-bottom: 30px;
+/* LOGO */
+
+#logo {
+    left: 20px;
+    position: absolute;
+    top: 10px;
+    z-index: 2000;
+}
+
+#logo img {
+    height: 75px;
+    width: 75px;
+}
+
+    @media(min-width: 768px) {
+        #logo img {
+            height: 150px;
+            width: 150px;
+        }
+    }
+
+/* NAVBAR */
+
+.navbar {
+    background: #ffffff;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), 0 100%);
+    margin-bottom: 0;
+    padding-bottom: 25px;
+    padding-top: 20px;
 }
 
 .navbar-static-top {
     border-width: 0;
-}
-
-@media(min-height: 768px) {
-    .navbar-right {
-        margin-right: 0;
-    }
-}
-
-.navbar-default {
-    background: #ffffff;
 }
 
 .navbar-collapse {
@@ -27,69 +43,145 @@ h1 {
 }
 
 .navbar-toggle {
-    margin-bottom: 16px;
+    border-color: #dddddd;
+    margin-bottom: 20px;
     margin-top: 0;
 }
 
-.navbar-nav {
-    margin: 27.5px -15px 7.5px -15px;
+.navbar-toggle .icon-bar {
+    background-color: #888888;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-nav {
+    margin: 0;
+}
+
+.navbar-nav > li {
+    text-align: center;
+}
+
+.navbar-nav > li > a {
     color: #333333;
+    font-size: 1.2em;
     font-weight: 600;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
-    background: none;
+.navbar-nav > li > a:hover {
+    background: #f6f6f6;
+    border-radius: 5px;
     color: #c30303;
 }
 
-.navbar {
-    margin-bottom: 0;
-    margin-top: 20px;
-}
+    @media(min-width: 768px) {
+        .navbar {
+                -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 0 100%);
+            padding-bottom: 55px;
+        }
 
-.slant-clip {
-        -webkit-clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
-    clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%);
-    padding-bottom: 50px;
-    padding-top: 80px;
-}
-
-#shield {
-    height: 70px;
-    margin-top: -20px;
-    width: 70px;
-}
-
-@media(min-width: 768px) {
-    #shield {
-        height: 175px;
-        width: 175px;
+        .navbar-right {
+            margin-right: 5px;
+        }
     }
-}
+
+/* CONTAINER */
 
 #container {
     background: #c30303;
-    height: 100%;
+    min-height: 100%;
+    margin-top: -25px;
 }
+
+    @media(min-width: 768px) {
+        #container {
+            margin-top: -50px;         
+        }
+    }
+
+/* GENERAL */
+
+.first-section {
+    padding-top: 50px;
+}
+
+.before-slant-clip {
+    padding-bottom: 50px;
+}
+
+.slant-clip {
+        -webkit-clip-path: polygon(0 25px, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 25px, 100% 0, 100% 100%, 0 100%);
+    margin-top: -25px;
+    padding-top: 50px;
+}
+
+.inner-container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.section-title {
+    color: #c30303;
+    font-weight: 600;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.right-section-title {
+    margin-top: 0;
+    text-align: right;
+}
+
+.btn-default {
+    background: #f32a2c;
+    border-color: #c30303;
+    color: #ffffff;
+}
+
+.btn-default:hover {
+    background: #db1718;
+    border-color: #c30303;
+    color: #ffffff;
+}
+
+    @media(min-width: 768px) {
+        .col-xs-6, .col-xs-12 {
+            padding-left: 35px;
+            padding-right: 35px;
+        }
+
+        .first-section {
+            padding-top: 75px;
+        }
+
+        .before-slant-clip {
+            padding-bottom: 75px;
+        }
+
+        .slant-clip {
+                -webkit-clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
+            margin-top: -50px;
+            padding-top: 75px;
+        }
+    }
+
+/* FOOTER */
 
 #follow-us {
     background: #c30303;
     color: #ffffff;
-    line-height: 75px;
-    padding-bottom: 0;
-    padding-top: 30px;
 }
 
 #follow-us h3 {
-    line-height: 75px;
-    margin: 0;
+    line-height: 50px;
+    margin: 0 0 25px 0;
 }
 
 #follow-us a {
     color: #ffffff;
+    line-height: 50px;
+    margin-bottom: 25px;
 }
 
 #follow-us a:hover {

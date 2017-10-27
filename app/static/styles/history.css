@@ -1,0 +1,36 @@
+.half-column {
+    margin-bottom: 0;
+}
+
+#hardware-2017 {
+    background: #eeeeee;
+}
+
+#postseason {
+    background: #ffffff;
+}
+
+.year {
+    border: 1px solid;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#postseason .year {
+    float: left;
+    margin: 0 5px 5px 0;
+    padding: 0 5px;
+}
+
+#individual-awards {
+    background: #eeeeee;
+}
+
+#individual-awards .year {
+    line-height: 1.2em;
+    padding: 0 3px;
+}
+
+#footnote {
+    margin-top: 25px;
+}
