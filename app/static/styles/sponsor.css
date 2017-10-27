@@ -22,7 +22,7 @@
 
 #sponsorship-levels thead th div {
     font-weight: normal;
-    transform: translate(10%, 10px) rotate(270deg);
+    transform: translate(-12px, 10px) rotate(270deg);
     transform-origin: top left 0;
     width: 10px;
 }
@@ -34,7 +34,6 @@
 
 #sponsorship-levels tbody td {
     padding: 8px 0;
-    text-align: center;
     max-width: 40px;
     min-width: 20px;
     width: 7%;
@@ -54,15 +53,15 @@
 
     @media(min-width: 768px) {
         #sponsorship-levels-container {
-            padding-right: 50px;
+            padding: 0 40px;
         }
 
         #sponsorship-levels thead th {
-            height: 175px;
+            height: 160px;
         }
 
         #sponsorship-levels thead th div {
-            transform: translate(10px, 10px) rotate(315deg);
+            transform: translate(-8px, 10px) rotate(315deg);
         }
 
         #sponsorship-levels tbody td {
