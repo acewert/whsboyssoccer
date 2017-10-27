@@ -132,6 +132,16 @@ html, body {
     text-align: right;
 }
 
+.block {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.block p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
 .btn-default {
     background: #f32a2c;
     border-color: #c30303;
