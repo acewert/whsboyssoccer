@@ -44,21 +44,10 @@ class Game(models.Model):
     opponent_score = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        if self.location == self.locations.HOME:
-            return '{0} Waco vs. {1}'.format(
-                self.get_squad_display(),
-                self.opponent
-            )
-        elif self.location == self.locations.AWAY:
-            return '{0} Waco @ {1}'.format(
-                self.get_squad_display(),
-                self.opponent
-            )
-        else:
-            return '{0} {1}'.format(
-                self.get_squad_display(),
-                self.opponent
-            )
+        return '{0}: {1}'.format(
+            self.get_squad_display(),
+            self.opponent
+        )
 
 
 
