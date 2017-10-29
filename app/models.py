@@ -1,7 +1,7 @@
 from django.db import models
 
 
-__all__ = ['Coach', 'Game', 'Player']
+__all__ = ['Coach', 'Game', 'Player', 'SeniorSpotlight']
 
 
 class Coach(models.Model):
@@ -48,7 +48,6 @@ class Game(models.Model):
             self.get_squad_display(),
             self.opponent
         )
-
 
 
 class Player(models.Model):
@@ -99,3 +98,24 @@ class Player(models.Model):
     def __str__(self):
         return '{0} {1} (#{2})'.format(self.first_name, self.last_name,
                                        self.number)
+
+
+class SeniorSpotlight(models.Model):
+    player = models.ForeignKey(Player)
+    photo = models.ImageField()
+    bio = models.TextField(blank=True)
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return '{0} {1}'.format(self.player.first_name, self.player.last_name)
+
+    def save(self, *args, **kwargs):
+        if self.active:
+            qs = SeniorSpotlight.objects.filter(active=True)
+
+            if self.pk:
+                qs = qs.exclude(pk=self.pk)
+
+            qs.update(active=False)
+
+        super().save(*args, **kwargs)

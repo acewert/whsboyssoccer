@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +124,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = '/home/acewert/whsboyssoccer/static'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = '/home/acewert/whsboyssoccer/media'
 
 
 try:

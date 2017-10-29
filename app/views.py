@@ -9,7 +9,14 @@ __all__ = [
 
 
 def home(request):
-    return render(request, 'home.html')
+    try:
+        senior_spotlight = SeniorSpotlight.objects.get(active=True)
+    except SeniorSpotlight.DoesNotExist:
+        senior_spotlight = None
+
+    context = {'senior_spotlight': senior_spotlight}
+
+    return render(request, 'home.html', context)
 
 
 def roster(request):
@@ -28,7 +35,7 @@ def roster(request):
 
 def schedule(request):
     games = Game.objects.order_by('date')
-    
+
     context = {'games': games}
 
     return render(request, 'schedule.html', context)

@@ -1,5 +1,5 @@
 #splash {
-	background-color: #000000;
+    background-color: #000000;
     background-image: url('/static/images/splash.jpg');
     background-position: center;
     background-size: cover;
@@ -8,24 +8,46 @@
     min-height: 400px;
 }
 
-	@media(min-width: 768px) {
-		#splash {
-			min-height: 425px;
-		}
-	}
+    @media(min-width: 768px) {
+        #splash {
+            min-height: 425px;
+        }
+    }
 
 #senior-spotlight {
     background: #ffffff;
 }
+
+#senior-spotlight-photo {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+}
+
+#senior-spotlight-name {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+    @media(min-width: 768px) {
+        #senior-spotlight-photo {
+            float: right;
+        }
+        
+        #senior-spotlight-name {
+            margin-top: 0;
+            text-align: left;
+        }
+    }
 
 #sponsor {
     background: #eeeeee;
 }
 
 #sponsor-blurb {
-	font-size: 1.3em;
-	margin: 0 auto;
-	max-width: 600px;
+    font-size: 1.3em;
+    margin: 0 auto;
+    max-width: 600px;
 }
 
 #sponsor-button {
