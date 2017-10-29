@@ -1,0 +1,72 @@
+#become-a-sponsor {
+    background: #eeeeee;
+}
+
+#salutation {
+    margin-bottom: 40px;
+}
+
+#sponsored-items {
+    margin-bottom: 30px;
+}
+
+#sponsorship-levels {
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 30px;
+}
+
+#sponsorship-levels thead th {
+    height: 225px;
+    white-space: nowrap;
+}
+
+#sponsorship-levels thead th div {
+    font-weight: normal;
+    transform: translate(-12px, 10px) rotate(270deg);
+    transform-origin: top left 0;
+    width: 10px;
+}
+
+#sponsorship-levels tbody th {
+    border-left: 1px solid #dddddd;
+    font-weight: normal;
+}
+
+#sponsorship-levels tbody td {
+    padding: 8px 0;
+    max-width: 40px;
+    min-width: 20px;
+    width: 7%;
+}
+
+#sponsorship-levels tbody td:last-of-type {
+    border-right: 1px solid #dddddd;
+}
+
+#sponsorship-levels i.fa-circle {
+    color: #c30303;
+}
+
+#sponsorship-levels i.fa-circle-o {
+    color: #cccccc;
+}
+
+    @media(min-width: 768px) {
+        #sponsorship-levels-container {
+            padding: 0 40px;
+        }
+
+        #sponsorship-levels thead th {
+            height: 160px;
+        }
+
+        #sponsorship-levels thead th div {
+            transform: translate(-8px, 10px) rotate(315deg);
+        }
+
+        #sponsorship-levels tbody td {
+            max-width: none;
+            min-width: none;
+            width: 10%;
+        }
+    }
