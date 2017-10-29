@@ -104,7 +104,7 @@ html, body {
 
 /* GENERAL */
 
-a, a:active, a:visited {
+a, a:focus {
     color: #f32a2c;
 }
 
