@@ -1,3 +1,7 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
 html, body {
     height: 100%;
 }
@@ -100,6 +104,14 @@ html, body {
 
 /* GENERAL */
 
+a, a:active, a:visited {
+    color: #f32a2c;
+}
+
+a:hover {
+    color: #db1718;
+}
+
 .first-section {
     padding-top: 50px;
 }
@@ -132,13 +144,13 @@ html, body {
     text-align: right;
 }
 
-.btn-default {
+.btn-primary, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus {
     background: #f32a2c;
     border-color: #c30303;
     color: #ffffff;
 }
 
-.btn-default:hover {
+.btn-primary:hover {
     background: #db1718;
     border-color: #c30303;
     color: #ffffff;

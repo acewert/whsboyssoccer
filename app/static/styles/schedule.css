@@ -1,0 +1,22 @@
+#schedule {
+    background: #eeeeee;
+}
+
+#squad-selector {
+    margin-bottom: 30px;
+}
+
+.win {
+    color: #5dad0a;
+    font-weight: bold;
+}
+
+.loss {
+    color: #c30303;
+    font-weight: bold;
+}
+
+.tie {
+    color: #666666;
+    font-weight: bold;
+}

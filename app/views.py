@@ -27,7 +27,11 @@ def roster(request):
 
 
 def schedule(request):
-    return render(request, 'schedule.html')
+    games = Game.objects.order_by('date')
+    
+    context = {'games': games}
+
+    return render(request, 'schedule.html', context)
 
 
 def coaches(request):

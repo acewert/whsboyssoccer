@@ -1,7 +1,7 @@
 from django.db import models
 
 
-__all__ = ['Coach', 'Player']
+__all__ = ['Coach', 'Game', 'Player']
 
 
 class Coach(models.Model):
@@ -18,6 +18,48 @@ class Coach(models.Model):
     def __str__(self):
         return '{0} {1} ({2})'.format(self.first_name, self.last_name,
                                       self.title)
+
+
+class Game(models.Model):
+    class squads:
+        FRESHMAN = 1
+        JV = 2
+        VARSITY = 3
+
+    SQUAD_CHOICES = (
+        (squads.FRESHMAN, 'Freshman'),
+        (squads.JV, 'JV'),
+        (squads.VARSITY, 'Varsity'),
+    )
+
+    squad = models.IntegerField(choices=SQUAD_CHOICES)
+    scrimmage = models.BooleanField()
+    date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
+    time = models.TimeField(null=True, blank=True)
+    opponent = models.CharField(max_length=64)
+    location_name = models.CharField(max_length=64, blank=True)
+    location_map_url = models.URLField(blank=True)
+    whs_score = models.IntegerField(null=True, blank=True)
+    opponent_score = models.IntegerField(null=True, blank=True)
+
+    def __str__(self):
+        if self.location == self.locations.HOME:
+            return '{0} Waco vs. {1}'.format(
+                self.get_squad_display(),
+                self.opponent
+            )
+        elif self.location == self.locations.AWAY:
+            return '{0} Waco @ {1}'.format(
+                self.get_squad_display(),
+                self.opponent
+            )
+        else:
+            return '{0} {1}'.format(
+                self.get_squad_display(),
+                self.opponent
+            )
+
 
 
 class Player(models.Model):

@@ -4,4 +4,5 @@ from .models import *
 
 
 admin.site.register(Coach)
+admin.site.register(Game)
 admin.site.register(Player)
