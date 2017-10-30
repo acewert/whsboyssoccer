@@ -8,22 +8,24 @@
 
 {% block body %}
     <div class="row before-slant-clip" id="splash"></div>
-    <div class="row before-slant-clip slant-clip" id="senior-spotlight">
-        <div class="col-xs-12">
-            <div class="inner-container">
-                <h1 class="section-title">SENIOR SPOTLIGHT</h1>
-                <div class="row">
-                    <div class="col-sm-6 clearfix">
-                        <img src="{{ senior_spotlight.photo.url }}" id="senior-spotlight-photo">
-                    </div>
-                    <div class="col-sm-6" id="senior-spotlight-bio">
-                        <h3 id="senior-spotlight-name">{{ senior_spotlight.player.first_name }} {{ senior_spotlight.player.last_name }}</h3>
-                        <p>{{ senior_spotlight.bio | safe }}</p>
+    {% if senior_spotlight %}
+        <div class="row before-slant-clip slant-clip" id="senior-spotlight">
+            <div class="col-xs-12">
+                <div class="inner-container">
+                    <h1 class="section-title">SENIOR SPOTLIGHT</h1>
+                    <div class="row">
+                        <div class="col-sm-6 clearfix">
+                            <img src="{{ senior_spotlight.photo.url }}" id="senior-spotlight-photo">
+                        </div>
+                        <div class="col-sm-6" id="senior-spotlight-bio">
+                            <h3 id="senior-spotlight-name">{{ senior_spotlight.player.first_name }} {{ senior_spotlight.player.last_name }}</h3>
+                            <p>{{ senior_spotlight.bio | safe }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
     <div class="row before-slant-clip slant-clip" id="sponsor">
         <div class="col-xs-12">
             <h1 class="section-title">BECOME A SPONSOR</h1>
