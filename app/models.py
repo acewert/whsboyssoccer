@@ -61,6 +61,7 @@ class Player(models.Model):
         FRESHMAN = 1
         JV = 2
         VARSITY = 3
+        FRESHMAN_RED = 4
 
     class positions:
         FORWARD = 1
@@ -76,6 +77,7 @@ class Player(models.Model):
     )
 
     SQUAD_CHOICES = (
+        (squads.FRESHMAN_RED, 'Freshman Red'),
         (squads.FRESHMAN, 'Freshman'),
         (squads.JV, 'JV'),
         (squads.VARSITY, 'Varsity'),

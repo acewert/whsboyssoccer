@@ -20,11 +20,13 @@ def home(request):
 
 
 def roster(request):
+    freshman_red = Player.objects.filter(squad=Player.squads.FRESHMAN_RED)
     freshman = Player.objects.filter(squad=Player.squads.FRESHMAN)
     jv = Player.objects.filter(squad=Player.squads.JV)
     varsity = Player.objects.filter(squad=Player.squads.VARSITY)
 
     context = {
+        'freshman_red': freshman_red,
         'freshman': freshman,
         'jv': jv,
         'varsity': varsity,
