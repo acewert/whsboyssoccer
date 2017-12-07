@@ -1,1 +1,20 @@
 {% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'styles/photos.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+    <div class="row first-section before-slant-clip" id="photos">
+        <div class="col-xs-12">
+            <div class="inner-container">
+                <h2 class="section-title right-section-title">Photos</h2>
+                <div class="block">
+                    <h4 class="text-center">Coming Soon!</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
