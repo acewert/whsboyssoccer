@@ -16,18 +16,10 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&3_v-in#5c6o+s@&^mb-p++cpyp1s@miie)@v7#@n338*sp_z0'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'acewert.pythonanywhere.com',
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -74,17 +66,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'whsboyssoccer.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -123,11 +104,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/home/acewert/whsboyssoccer/static'
-
 MEDIA_URL = '/media/'
-
-MEDIA_ROOT = '/home/acewert/whsboyssoccer/media'
 
 
 try:

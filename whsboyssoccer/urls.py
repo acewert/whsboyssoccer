@@ -15,4 +15,7 @@ urlpatterns = [
     url(r'^history/$', views.history, name='history'),
     url(r'^photos/$', views.photos, name='photos'),
     url(r'^sponsor/$', views.sponsor, name='sponsor'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
