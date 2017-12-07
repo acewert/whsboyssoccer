@@ -101,7 +101,9 @@ class Player(models.Model):
 
 
 class SeniorSpotlight(models.Model):
-    player = models.ForeignKey(Player)
+    player = models.ForeignKey(Player, limit_choices_to={
+        'klass': Player.classes.SENIOR
+    })
     photo = models.ImageField()
     bio = models.TextField(blank=True)
     active = models.BooleanField(default=True)
