@@ -13,13 +13,16 @@
                 <h2 class="section-title right-section-title">2018 Schedule</h2>
                 <div class="btn-group btn-group-justified" id="squad-selector">
                     <div class="btn-group">
-                        <button class="btn btn-default" type="button" ng-class="{'btn-primary': selectedSquad == 'varsity'}" ng-click="selectedSquad = 'varsity'">Varsity</button>
+                        <button class="btn btn-default" type="button" ng-class="{'btn-primary': selectedSquad == 'varsity'}" ng-click="selectedSquad = 'varsity'">Vars<span class="hidden-xs">ity</span></button>
                     </div>
                     <div class="btn-group">
                         <button class="btn btn-default" type="button" ng-class="{'btn-primary': selectedSquad == 'jv'}" ng-click="selectedSquad = 'jv'">JV</button>
                     </div>
                     <div class="btn-group">
-                        <button class="btn btn-default" type="button" ng-class="{'btn-primary': selectedSquad == 'freshman'}" ng-click="selectedSquad = 'freshman'">Freshman</button>
+                        <button class="btn btn-default" type="button" ng-class="{'btn-primary': selectedSquad == 'freshman'}" ng-click="selectedSquad = 'freshman'">Fr<span class="hidden-xs">eshman</span></button>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-default" type="button" ng-class="{'btn-primary': selectedSquad == 'freshman red'}" ng-click="selectedSquad = 'freshman red'">Fr<span class="hidden-xs">eshman</span> Red</button>
                     </div>
                 </div>
                 <div class="table-responsive">

@@ -25,8 +25,10 @@ class Game(models.Model):
         FRESHMAN = 1
         JV = 2
         VARSITY = 3
+        FRESHMAN_RED = 4
 
     SQUAD_CHOICES = (
+        (squads.FRESHMAN_RED, 'Freshman Red'),
         (squads.FRESHMAN, 'Freshman'),
         (squads.JV, 'JV'),
         (squads.VARSITY, 'Varsity'),
