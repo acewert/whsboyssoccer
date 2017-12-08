@@ -11,7 +11,16 @@ def full_name(person):
 full_name.short_description = 'Name'
 
 
+class CoachAdminForm(forms.ModelForm):
+    bio = forms.CharField(widget=CKEditorWidget())
+
+    class Meta:
+        model = Coach
+        fields = '__all__'
+
+
 class CoachAdmin(admin.ModelAdmin):
+    form = CoachAdminForm
     list_display = (full_name, 'title', 'ordering')
 
 
