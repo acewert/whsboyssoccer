@@ -95,7 +95,7 @@ class Player(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
     number = models.CharField(max_length=3)
-    klass = models.IntegerField(choices=CLASS_CHOICES)
+    klass = models.IntegerField(choices=CLASS_CHOICES, verbose_name='Class')
     squad = models.IntegerField(choices=SQUAD_CHOICES)
     position = models.IntegerField(choices=POSITION_CHOICES)
 
