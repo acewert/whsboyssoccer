@@ -40,8 +40,69 @@
         }
     }
 
-#sponsor {
+#posts {
     background: #eeeeee;
+}
+
+.post-date {
+    background: #c30303;
+    border-radius: 5px;
+    color: #ffffff;
+    display: none;
+    float: left;
+    line-height: normal;
+    margin: 20px 0 0 5px;
+    padding: 5px 0;
+    text-align: center;
+    width: 75px;
+}
+
+.post-day {
+    font-size: 3em;
+}
+
+.post-title {
+    margin-bottom: 20px;
+}
+
+.post-meta {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.post-timestamp {
+    font-weight: bold;
+}
+
+    @media(min-width: 768px) {
+        #posts .inner-container .row:not(:last-of-type) .post {
+            border-bottom: 1px solid #cccccc;    
+        }
+
+        .post-date {
+            display: block;
+        }
+
+        .post-title {
+            margin-left: 100px;
+        }
+
+        .post-body {
+            margin-left: 100px;
+            padding-bottom: 10px;
+        }
+
+        .post-meta {
+            border-left: 1px solid #cccccc;
+        }
+
+        .post-separator {
+            display: none;
+        }
+    }
+
+#sponsor {
+    background: #ffffff;
 }
 
 #sponsor-blurb {

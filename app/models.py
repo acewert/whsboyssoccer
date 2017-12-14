@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
-__all__ = ['Coach', 'Game', 'Player', 'SeniorSpotlight']
+__all__ = ['Coach', 'Game', 'Player', 'Post', 'SeniorSpotlight']
 
 
 class Coach(models.Model):
@@ -102,6 +103,16 @@ class Player(models.Model):
     def __str__(self):
         return '{0} {1} (#{2})'.format(self.first_name, self.last_name,
                                        self.number)
+
+
+class Post(models.Model):
+    timestamp = models.DateTimeField(auto_now_add=True, verbose_name='Posted')
+    author = models.ForeignKey(User)
+    title = models.CharField(max_length=128)
+    body = models.TextField()
+
+    def __str__(self):
+        return self.title
 
 
 class SeniorSpotlight(models.Model):

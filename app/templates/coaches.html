@@ -13,7 +13,7 @@
                 <div class="inner-container">
                     <h2 class="section-title right-section-title">{{ coach.first_name }} {{ coach.last_name }}</h2>
                     <h4 class="section-title right-section-title">{{ coach.title }}</h4>
-                    <p class="bio">{{ coach.bio }}</p>
+                    <p class="bio">{{ coach.bio | safe }}</p>
                     {% if coach.email_address %}
                         <p class="text-center">
                             <a class="btn btn-primary btn-lg email-btn" href="mailto:{{ coach.email_address }}">

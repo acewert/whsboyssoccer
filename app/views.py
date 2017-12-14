@@ -14,7 +14,12 @@ def home(request):
     except SeniorSpotlight.DoesNotExist:
         senior_spotlight = None
 
-    context = {'senior_spotlight': senior_spotlight}
+    posts = Post.objects.order_by('-timestamp')[:5]
+
+    context = {
+        'posts': posts,
+        'senior_spotlight': senior_spotlight
+    }
 
     return render(request, 'home.html', context)
 

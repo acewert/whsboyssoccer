@@ -26,6 +26,34 @@
             </div>
         </div>
     {% endif %}
+    <div class="row before-slant-clip slant-clip" id="posts">
+        <div class="col-xs-12">
+            <div class="inner-container">
+                <h1 class="section-title">LATEST NEWS</h1>
+                {% for post in posts %}
+                    <div class="row">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="row post">
+                                <div class="col-sm-9">
+                                    <div class="post-date">
+                                        <div class="post-day">{{ post.timestamp | date:'j' }}</div>
+                                        <div>{{ post.timestamp | date:'M' }}</div>
+                                    </div>
+                                    <h3 class="post-title">{{ post.title }}</h3>
+                                    <div class="post-body">{{ post.body | safe }}</div>
+                                </div>
+                                <div class="col-sm-3 post-meta">
+                                    <div class="post-timestamp">{{ post.timestamp }}</div>
+                                    <div class="post-author">by {{ post.author.first_name }} {{ post.author.last_name }}</div>
+                                </div>
+                                <h3 class="post-separator text-center text-muted">&bull; &bull; &bull; &bull;</h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     <div class="row before-slant-clip slant-clip" id="sponsor">
         <div class="col-xs-12">
             <h1 class="section-title">BECOME A SPONSOR</h1>
