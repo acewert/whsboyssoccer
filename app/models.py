@@ -99,6 +99,7 @@ class Player(models.Model):
     klass = models.IntegerField(choices=CLASS_CHOICES, verbose_name='Class')
     squad = models.IntegerField(choices=SQUAD_CHOICES)
     position = models.IntegerField(choices=POSITION_CHOICES)
+    photo = models.ImageField(blank=True)
 
     def __str__(self):
         return '{0} {1} (#{2})'.format(self.first_name, self.last_name,

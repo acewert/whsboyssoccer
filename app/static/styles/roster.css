@@ -13,3 +13,8 @@
 #freshman-red {
     background: #ffffff;
 }
+
+.player-photo {
+	max-height: 60px;
+	max-width: 45px;
+}
