@@ -14,6 +14,7 @@ class Coach(models.Model):
     title = models.CharField(max_length=64)
     bio = models.TextField(blank=True)
     email_address = models.EmailField(blank=True)
+    photo = models.ImageField(blank=True)
     ordering = models.IntegerField()
 
     def __str__(self):
@@ -99,7 +100,6 @@ class Player(models.Model):
     klass = models.IntegerField(choices=CLASS_CHOICES, verbose_name='Class')
     squad = models.IntegerField(choices=SQUAD_CHOICES)
     position = models.IntegerField(choices=POSITION_CHOICES)
-    photo = models.ImageField(blank=True)
 
     def __str__(self):
         return '{0} {1} (#{2})'.format(self.first_name, self.last_name,
@@ -109,6 +109,7 @@ class Player(models.Model):
 class Post(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, verbose_name='Posted')
     author = models.ForeignKey(User)
+    image = models.ImageField(blank=True)
     title = models.CharField(max_length=128)
     body = models.TextField()
 
