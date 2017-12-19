@@ -42,7 +42,12 @@
                                         <div>{{ post.timestamp | date:'M' }}</div>
                                     </div>
                                     <h3 class="post-title">{{ post.title }}</h3>
-                                    <div class="post-body">{{ post.body | safe }}</div>
+                                    <div class="post-body">
+                                        {% if post.image %}
+                                            <img class="post-image" src="{{ post.image.url }}">
+                                        {% endif %}
+                                        {{ post.body | safe }}
+                                    </div>
                                 </div>
                                 <div class="col-sm-3 post-meta">
                                     <div class="post-timestamp">{{ post.timestamp }}</div>
