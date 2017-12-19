@@ -1,25 +1,38 @@
 .odd-section {
-	background: #eeeeee;
+    background: #eeeeee;
 }
 
 .even-section {
-	background: #ffffff;
+    background: #ffffff;
 }
 
 h2.section-title {
-	margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 h4.section-title {
-	color: #000000;
+    color: #000000;
 }
 
+.photo {
+    display: block;
+    margin: 10px auto;
+    max-width: 250px;
+}
+
+    @media(min-width: 768px) {
+        .photo {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+    }
+
 .bio {
-	font-size: 1.2em;
-	margin: 0 auto;
-	max-width: 600px;
+    font-size: 1.2em;
+    margin: 0 auto;
+    max-width: 600px;
 }
 
 .email-btn {
-	margin-top: 20px;
+    margin-top: 20px;
 }
