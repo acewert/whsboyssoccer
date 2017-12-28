@@ -61,7 +61,7 @@
                                             {{ game.location_name }}
                                         {% endif %}
                                     </td>
-                                    {% if game.whs_score and game.opponent_score %}
+                                    {% if game.whs_score is not None and game.opponent_score is not None %}
                                         {% if game.whs_score > game.opponent_score %}
                                             <td class="win">W {{ game.whs_score }}-{{ game.opponent_score }}</td>
                                         {% else %}
