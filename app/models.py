@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-__all__ = ['Coach', 'Game', 'Player', 'Post', 'SeniorSpotlight']
+__all__ = ['Coach', 'Game', 'Link', 'Player', 'Post', 'SeniorSpotlight', 'Sponsor']
 
 
 class Coach(models.Model):
@@ -52,6 +52,14 @@ class Game(models.Model):
             self.get_squad_display(),
             self.opponent
         )
+
+
+class Link(models.Model):
+    title = models.CharField(max_length=128)
+    url = models.URLField()
+
+    def __str__(self):
+        return self.title
 
 
 class Player(models.Model):
@@ -138,3 +146,26 @@ class SeniorSpotlight(models.Model):
             qs.update(active=False)
 
         super().save(*args, **kwargs)
+
+
+class Sponsor(models.Model):
+    class levels:
+        IRON = 1
+        BRONZE = 2
+        SILVER = 3
+        GOLD = 4
+        PLATINUM = 5
+
+    LEVEL_CHOICES = (
+        (levels.IRON, 'Iron'),
+        (levels.BRONZE, 'Bronze'),
+        (levels.SILVER, 'Silver'),
+        (levels.GOLD, 'Gold'),
+        (levels.PLATINUM, 'Platinum'),
+    )
+
+    name = models.CharField(max_length=128)
+    level = models.IntegerField(choices=LEVEL_CHOICES)
+
+    def __str__(self):
+        return self.name

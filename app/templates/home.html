@@ -61,13 +61,77 @@
             </div>
         </div>
     </div>
-    <div class="row before-slant-clip slant-clip" id="sponsor">
+    <div class="row before-slant-clip slant-clip" id="our-sponsors">
         <div class="col-xs-12">
-            <h1 class="section-title">BECOME A SPONSOR</h1>
-            <p class="text-center" id="sponsor-blurb">Support the Waco High Boys Soccer Program and help us become the premiere soccer program in the state.</p>
-            <p class="text-center">
-                <a class="btn btn-primary btn-lg" href="{% url 'sponsor' %}" id="sponsor-button">Click Here for Sponsorship Info</a>
-            </p>
+            <div class="inner-container">
+                <h1 class="section-title">OUR SPONSORS</h1>
+                {% if sponsors.platinum %}
+                    <div class="row sponsor-level">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="level-heading">Platinum Level</div>
+                            <div id="sponsors-platinum">
+                                {% for sponsor in sponsors.platinum %}
+                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if sponsors.gold %}
+                    <div class="row sponsor-level">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="level-heading">Gold Level</div>
+                            <div id="sponsors-gold">
+                                {% for sponsor in sponsors.gold %}
+                                    {{ sponsor.name }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if sponsors.silver %}
+                    <div class="row sponsor-level">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="level-heading">Silver Level</div>
+                            <div id="sponsors-silver">
+                                {% for sponsor in sponsors.silver %}
+                                    {{ sponsor.name }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if sponsors.bronze %}
+                    <div class="row sponsor-level">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="level-heading">Bronze Level</div>
+                            <div id="sponsors-bronze">
+                                {% for sponsor in sponsors.bronze %}
+                                    {{ sponsor.name }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if sponsors.iron %}
+                    <div class="row sponsor-level">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="level-heading">Iron Level</div>
+                            <div id="sponsors-iron">
+                                {% for sponsor in iron.bronze %}
+                                    {{ sponsor.name }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div id="become-a-sponsor">BECOME A SPONSOR</div>
+                <p class="text-center" id="sponsor-blurb">Support the Waco High Boys Soccer Program and help us become the premiere soccer program in the state.</p>
+                <p class="text-center">
+                    <a class="btn btn-primary" href="{% url 'sponsor' %}" id="sponsor-button">Click Here for Sponsorship Info</a>
+                </p>
+            </div>
         </div>
     </div>
 {% endblock %}

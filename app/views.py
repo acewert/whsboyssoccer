@@ -9,16 +9,23 @@ __all__ = [
 
 
 def home(request):
-    try:
-        senior_spotlight = SeniorSpotlight.objects.get(active=True)
-    except SeniorSpotlight.DoesNotExist:
-        senior_spotlight = None
-
     posts = Post.objects.order_by('-timestamp')[:5]
+    raw_sponsors = Sponsor.objects.order_by('name')
+
+    sponsors = {
+        'iron': [],
+        'bronze': [],
+        'silver': [],
+        'gold': [],
+        'platinum': [],
+    }
+
+    for sponsor in raw_sponsors:
+        sponsors[sponsor.get_level_display().lower()].append(sponsor)
 
     context = {
         'posts': posts,
-        'senior_spotlight': senior_spotlight
+        'sponsors': sponsors,
     }
 
     return render(request, 'home.html', context)
