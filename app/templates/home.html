@@ -83,7 +83,7 @@
                             <div class="level-heading">Gold Level</div>
                             <div id="sponsors-gold">
                                 {% for sponsor in sponsors.gold %}
-                                    {{ sponsor.name }}
+                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                             <div class="level-heading">Silver Level</div>
                             <div id="sponsors-silver">
                                 {% for sponsor in sponsors.silver %}
-                                    {{ sponsor.name }}
+                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                             <div class="level-heading">Bronze Level</div>
                             <div id="sponsors-bronze">
                                 {% for sponsor in sponsors.bronze %}
-                                    {{ sponsor.name }}
+                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                             <div class="level-heading">Iron Level</div>
                             <div id="sponsors-iron">
                                 {% for sponsor in iron.bronze %}
-                                    {{ sponsor.name }}
+                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
