@@ -47,11 +47,11 @@
 
 .player-number {
     bottom: -80px;
-    color: rgba(0, 0, 0, 0.05);
+    color: #eeeeee;
     font-size: 13em;
     font-weight: bold;
     position: absolute;
-    right: -20px;
+    right: -15px;
     vertical-align: bottom;
 }
 
