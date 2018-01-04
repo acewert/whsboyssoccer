@@ -20,12 +20,12 @@
                         {{ coach.bio | safe }}
                     </div>
                     {% if coach.email_address %}
-                        <p class="text-center">
-                            <a class="btn btn-primary btn-lg email-btn" href="mailto:{{ coach.email_address }}">
+                        <div class="btn-email">
+                            <a class="btn btn-primary btn-lg" href="mailto:{{ coach.email_address }}">
                                 <i class="fa fa-envelope-o fa-fw"></i>
                                 Email Coach {{ coach.last_name }}
                             </a>
-                        </p>
+                        </div>
                     {% endif %}
                 </div>
             </div>

@@ -11,39 +11,24 @@
         <div class="col-xs-12">
             <div class="inner-container">
                 <h2 class="section-title right-section-title">Varsity Roster</h2>
-                <table class="table table-hover">
-                    <colgroup>
-                        <col class="player-photo-col">
-                        <col class="player-number-col">
-                        <col>
-                        <col>
-                        <col>
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Class</th>
-                            <th>Position</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for player in varsity %}
-                            <tr>
-                                <td>
+                <div class="row">
+                    {% for player in varsity %}
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="player-card">
+                                <div class="player-photo-container">
                                     {% if player.photo %}
                                         <img class="player-photo" src="{{ player.photo.url }}">
                                     {% endif %}
-                                </td>
-                                <td>{{ player.number }}</td>
-                                <td>{{ player.first_name }} {{ player.last_name }}</td>
-                                <td>{{ player.get_klass_display }}</td>
-                                <td>{{ player.get_position_display }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                                </div>
+                                <div class="player-number">{{ player.number }}</div>
+                                <div class="player-info">
+                                    <div class="player-name">{{ player.first_name }} {{ player.last_name }}</div>
+                                    <div class="player-details">{{ player.get_klass_display}} &bull; {{ player.get_position_display }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
