@@ -3,11 +3,11 @@
 {% load static %}
 
 {% block styles %}
-    <link href="{% static 'styles/schedule.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'styles/schedule.css' %}?2" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block body %}
-    <div class="row first-section before-slant-clip" id="schedule" ng-init="selectedSquad = 'varsity'" ng-cloak>
+    <div class="row before-slant-clip slant-clip" id="schedule" ng-init="selectedSquad = 'varsity'" ng-cloak>
         <div class="col-xs-12">
             <div class="inner-container">
                 <h2 class="section-title right-section-title">2018 Schedule</h2>

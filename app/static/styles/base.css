@@ -188,6 +188,21 @@ a:hover {
         }
     }
 
+/* SPLASH */
+
+#splash {
+    background-color: #000000;
+    background-size: cover;
+    height: calc(100vh - 175px);
+    min-height: 350px;
+}
+
+    @media(min-width: 768px) {
+        #splash {
+            min-height: 425px;
+        }
+    }
+
 /* FOOTER */
 
 #follow-us {

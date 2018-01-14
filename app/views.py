@@ -1,3 +1,5 @@
+import random
+
 from django.core.paginator import Paginator
 from django.shortcuts import render
 
@@ -8,6 +10,35 @@ __all__ = [
     'home', 'roster', 'schedule', 'coaches', 'history', 'photos', 'posts',
     'sponsor',
 ]
+
+
+def add_splash(context=None):
+    if context is None:
+        context = {}
+
+    SPLASH_IMAGES = [
+        (9001, 'left 40% top 20%'),
+        (9018, 'left 50% top 10%'),
+        (9041, 'left 50% top 25%'),
+        (9044, 'left 50% top 40%'),
+        (9071, 'left 50% top 5%'),
+        (9072, 'left 50% top 10%'),
+        (9103, 'left 30% top 35%'),
+        (9124, 'left 75% top'),
+        (9180, 'left 40% top 20%'),
+        (9196, 'left 50% top 30%'),
+        (9269, 'left 40% top 65%'),
+        (9346, 'left 50% top 25%'),
+    ]
+
+    img, pos = random.choice(SPLASH_IMAGES)
+
+    context.update({
+        'splash': 'images/splash/IMG_' + str(img) + '.JPG',
+        'splash_position': pos,
+    })
+
+    return context
 
 
 def home(request):
@@ -26,6 +57,8 @@ def home(request):
         sponsors[sponsor.get_level_display().lower()].append(sponsor)
 
     context = {
+        'splash': 'images/splash-home.jpg',
+        'splash_position': 'center',
         'posts': posts,
         'sponsors': sponsors,
     }
@@ -39,12 +72,12 @@ def roster(request):
     jv = Player.objects.filter(squad=Player.squads.JV)
     varsity = Player.objects.filter(squad=Player.squads.VARSITY)
 
-    context = {
+    context = add_splash({
         'freshman_red': freshman_red,
         'freshman': freshman,
         'jv': jv,
         'varsity': varsity,
-    }
+    })
 
     return render(request, 'roster.html', context)
 
@@ -52,7 +85,9 @@ def roster(request):
 def schedule(request):
     games = Game.objects.order_by('date')
 
-    context = {'games': games}
+    context = add_splash({
+        'games': games,
+    })
 
     return render(request, 'schedule.html', context)
 
@@ -60,17 +95,21 @@ def schedule(request):
 def coaches(request):
     coaches = Coach.objects.order_by('ordering')
 
-    context = {'coaches': coaches}
+    context = add_splash({'coaches': coaches})
 
     return render(request, 'coaches.html', context)
 
 
 def history(request):
-    return render(request, 'history.html')
+    context = add_splash()
+
+    return render(request, 'history.html', context)
 
 
 def photos(request):
-    return render(request, 'photos.html')
+    context = add_splash()
+
+    return render(request, 'photos.html', context)
 
 
 def posts(request):
@@ -94,4 +133,6 @@ def posts(request):
 
 
 def sponsor(request):
-    return render(request, 'sponsor.html')
+    context = add_splash()
+
+    return render(request, 'sponsor.html', context)

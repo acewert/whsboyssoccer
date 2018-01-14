@@ -8,7 +8,7 @@
 
 {% block body %}
     {% for coach in coaches %}
-        <div class="row {% if forloop.first %}first-section{% else %}slant-clip{% endif %} before-slant-clip {% cycle 'odd-section' 'even-section' %}">
+        <div class="row before-slant-clip slant-clip {% cycle 'odd-section' 'even-section' %}">
             <div class="col-xs-12">
                 <div class="inner-container">
                     <h2 class="section-title right-section-title">{{ coach.first_name }} {{ coach.last_name }}</h2>
