@@ -12,10 +12,7 @@ __all__ = [
 ]
 
 
-def add_splash(context=None):
-    if context is None:
-        context = {}
-
+def random_splash():
     SPLASH_IMAGES = [
         (9001, 'left 40% top 20%'),
         (9018, 'left 50% top 10%'),
@@ -33,12 +30,10 @@ def add_splash(context=None):
 
     img, pos = random.choice(SPLASH_IMAGES)
 
-    context.update({
+    return {
         'splash': 'images/splash/IMG_' + str(img) + '.JPG',
         'splash_position': pos,
-    })
-
-    return context
+    }
 
 
 def home(request):
@@ -72,12 +67,14 @@ def roster(request):
     jv = Player.objects.filter(squad=Player.squads.JV)
     varsity = Player.objects.filter(squad=Player.squads.VARSITY)
 
-    context = add_splash({
+    context = {
         'freshman_red': freshman_red,
         'freshman': freshman,
         'jv': jv,
         'varsity': varsity,
-    })
+    }
+
+    context.update(random_splash())
 
     return render(request, 'roster.html', context)
 
@@ -85,9 +82,11 @@ def roster(request):
 def schedule(request):
     games = Game.objects.order_by('date')
 
-    context = add_splash({
+    context = {
         'games': games,
-    })
+    }
+
+    context.update(random_splash())
 
     return render(request, 'schedule.html', context)
 
@@ -95,19 +94,23 @@ def schedule(request):
 def coaches(request):
     coaches = Coach.objects.order_by('ordering')
 
-    context = add_splash({'coaches': coaches})
+    context = {
+        'coaches': coaches
+    }
+    
+    context.update(random_splash())
 
     return render(request, 'coaches.html', context)
 
 
 def history(request):
-    context = add_splash()
+    context = random_splash()
 
     return render(request, 'history.html', context)
 
 
 def photos(request):
-    context = add_splash()
+    context = random_splash()
 
     return render(request, 'photos.html', context)
 
@@ -133,6 +136,6 @@ def posts(request):
 
 
 def sponsor(request):
-    context = add_splash()
+    context = random_splash()
 
     return render(request, 'sponsor.html', context)
