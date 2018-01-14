@@ -1,10 +1,12 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 
 from .models import *
 
 
 __all__ = [
-    'home', 'roster', 'schedule', 'coaches', 'history', 'photos', 'sponsor',
+    'home', 'roster', 'schedule', 'coaches', 'history', 'photos', 'posts',
+    'sponsor',
 ]
 
 
@@ -69,6 +71,26 @@ def history(request):
 
 def photos(request):
     return render(request, 'photos.html')
+
+
+def posts(request):
+    all_posts = Post.objects.order_by('-timestamp')
+    paginator = Paginator(all_posts, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        page = int(page)
+    except (TypeError, ValueError):
+        page = 1
+
+    if page < 1 or (page > paginator.num_pages and page != 1):
+        page = paginator.num_pages
+
+    posts = paginator.page(page)
+    context = {'posts': posts}
+
+    return render(request, 'posts.html', context)
 
 
 def sponsor(request):

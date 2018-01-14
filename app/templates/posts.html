@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link href="{% static 'styles/posts.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+    <div class="row first-section before-slant-clip" id="news-archive">
+        <div class="col-xs-12">
+            <div class="inner-container">
+                <h2 class="section-title right-section-title">News Archive</h2>
+                {% for post in posts %}
+                    <div class="row">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="row post">
+                                <div class="col-sm-9">
+                                    <div class="post-date">
+                                        <div class="post-day">{{ post.timestamp | date:'j' }}</div>
+                                        <div>{{ post.timestamp | date:'M' }}</div>
+                                    </div>
+                                    <h3 class="post-title">{{ post.title }}</h3>
+                                    <div class="post-body">
+                                        {% if post.image %}
+                                            <img class="post-image" src="{{ post.image.url }}">
+                                        {% endif %}
+                                        {{ post.body | safe }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 post-meta">
+                                    <div class="post-timestamp">{{ post.timestamp }}</div>
+                                    <div class="post-author">by {{ post.author.first_name }} {{ post.author.last_name }}</div>
+                                </div>
+                                <h3 class="post-separator text-center text-muted">&bull; &bull; &bull; &bull;</h3>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="row">
+                    <div class="col-xs-12">
+                        <nav>
+                            <ul class="pager">
+                                {% if posts.has_previous %}
+                                    <li class="previous"><a href="?page={{ posts.previous_page_number }}">&larr; Newer</a></li>
+                                {% endif %}
+                                {% if posts.has_next %}
+                                    <li class="next"><a href="?page={{ posts.next_page_number }}">Older &rarr;</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^coaches/$', views.coaches, name='coaches'),
     url(r'^history/$', views.history, name='history'),
     url(r'^photos/$', views.photos, name='photos'),
+    url(r'^posts/$', views.posts, name='posts'),
     url(r'^sponsor/$', views.sponsor, name='sponsor'),
 ]
 
