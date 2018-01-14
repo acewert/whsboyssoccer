@@ -43,9 +43,9 @@
             </div>
         </nav>
 
-        <div class="container-fluid" id="container">
+        <div id="container">
             {% block splash %}
-                <div class="row before-slant-clip" id="splash" style="background-image: url('{% static splash %}'); background-position: {{ splash_position }};"></div>
+                <div id="splash" style="background-image: url('{% static splash %}'); background-position: {{ splash_position }};"></div>
             {% endblock %}
             {% block body %}{% endblock %}
 
