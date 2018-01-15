@@ -82,10 +82,7 @@ def roster(request):
 def schedule(request):
     games = Game.objects.order_by('date')
 
-    context = {
-        'games': games,
-    }
-
+    context = {'games': games}
     context.update(random_splash())
 
     return render(request, 'schedule.html', context)
@@ -94,10 +91,7 @@ def schedule(request):
 def coaches(request):
     coaches = Coach.objects.order_by('ordering')
 
-    context = {
-        'coaches': coaches
-    }
-
+    context = {'coaches': coaches}
     context.update(random_splash())
 
     return render(request, 'coaches.html', context)
@@ -130,7 +124,9 @@ def posts(request):
         page = paginator.num_pages
 
     posts = paginator.page(page)
+
     context = {'posts': posts}
+    context.update(random_splash())
 
     return render(request, 'posts.html', context)
 
