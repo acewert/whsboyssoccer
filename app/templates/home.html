@@ -7,138 +7,114 @@
 {% endblock %}
 
 {% block body %}
-    {% comment %}
-    {% if senior_spotlight %}
-        <div class="row before-slant-clip slant-clip" id="senior-spotlight">
-            <div class="col-xs-12">
-                <div class="inner-container">
-                    <h1 class="section-title">SENIOR SPOTLIGHT</h1>
-                    <div class="row">
-                        <div class="col-sm-4 col-sm-offset-2 clearfix">
-                            <img src="{{ senior_spotlight.photo.url }}" id="senior-spotlight-photo">
+    <div class="section-clip">
+        <div class="section" id="latest-news">
+            <div class="section-title">Latest News</div>
+            {% for post in posts %}
+                <div class="row post">
+                    <div class="col-sm-9">
+                        <div class="post-date">
+                            <div class="post-day">{{ post.timestamp | date:'j' }}</div>
+                            <div>{{ post.timestamp | date:'M' }}</div>
                         </div>
-                        <div class="col-sm-6" id="senior-spotlight-bio">
-                            <h3 id="senior-spotlight-name">{{ senior_spotlight.player.first_name }} {{ senior_spotlight.player.last_name }}</h3>
-                            <p>{{ senior_spotlight.bio | safe }}</p>
+                        <h3 class="post-title">{{ post.title }}</h3>
+                        <div class="post-body">
+                            {% if post.image %}
+                                <img class="post-image" src="{{ post.image.url }}">
+                            {% endif %}
+                            {{ post.body | safe }}
                         </div>
                     </div>
+                    <div class="col-sm-3 post-meta">
+                        <div class="post-timestamp">{{ post.timestamp }}</div>
+                        <div class="post-author">by {{ post.author.first_name }} {{ post.author.last_name }}</div>
+                    </div>
+                    <div class="post-separator text-muted">&bull; &bull; &bull; &bull; &bull;</div>
                 </div>
-            </div>
-        </div>
-    {% endif %}
-    {% endcomment %}
-    <div class="row before-slant-clip slant-clip" id="posts">
-        <div class="col-xs-12">
-            <div class="inner-container">
-                <h1 class="section-title">LATEST NEWS</h1>
-                {% for post in posts %}
-                    <div class="row">
-                        <div class="col-lg-10 col-lg-offset-1">
-                            <div class="row post">
-                                <div class="col-sm-9">
-                                    <div class="post-date">
-                                        <div class="post-day">{{ post.timestamp | date:'j' }}</div>
-                                        <div>{{ post.timestamp | date:'M' }}</div>
-                                    </div>
-                                    <h3 class="post-title">{{ post.title }}</h3>
-                                    <div class="post-body">
-                                        {% if post.image %}
-                                            <img class="post-image" src="{{ post.image.url }}">
-                                        {% endif %}
-                                        {{ post.body | safe }}
-                                    </div>
-                                </div>
-                                <div class="col-sm-3 post-meta">
-                                    <div class="post-timestamp">{{ post.timestamp }}</div>
-                                    <div class="post-author">by {{ post.author.first_name }} {{ post.author.last_name }}</div>
-                                </div>
-                                <h3 class="post-separator text-center text-muted">&bull; &bull; &bull; &bull;</h3>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-                <div class="row">
-                    <div class="col-lg-10 col-lg-offset-1">
-                        <nav>
-                            <ul class="pager">
-                                <li class="next"><a href="{% url 'posts' %}">See Older Posts &rarr;</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav>
+                        <ul class="pager">
+                            <li class="next"><a href="{% url 'posts' %}">See Older Posts &rarr;</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row before-slant-clip slant-clip" id="our-sponsors">
-        <div class="col-xs-12">
-            <div class="inner-container">
-                <h1 class="section-title">OUR SPONSORS</h1>
-                {% if sponsors.platinum %}
-                    <div class="row sponsor-level">
-                        <div class="col-lg-10 col-lg-offset-1">
-                            <div class="level-heading">Platinum Level</div>
-                            <div id="sponsors-platinum">
-                                {% for sponsor in sponsors.platinum %}
-                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
-                                {% endfor %}
+    <div class="section-clip">
+        <div class="section" id="our-sponsors">
+            <div class="section-title">Our Sponsors</div>
+            <div class="row">
+                <div class="col-xs-12">
+                    {% if sponsors.platinum %}
+                        <div class="row sponsor-level">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <div class="level-heading">Platinum Level</div>
+                                <div id="sponsors-platinum">
+                                    {% for sponsor in sponsors.platinum %}
+                                        {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endif %}
-                {% if sponsors.gold %}
-                    <div class="row sponsor-level">
-                        <div class="col-lg-10 col-lg-offset-1">
-                            <div class="level-heading">Gold Level</div>
-                            <div id="sponsors-gold">
-                                {% for sponsor in sponsors.gold %}
-                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
-                                {% endfor %}
+                    {% endif %}
+                    {% if sponsors.gold %}
+                        <div class="row sponsor-level">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <div class="level-heading">Gold Level</div>
+                                <div id="sponsors-gold">
+                                    {% for sponsor in sponsors.gold %}
+                                        {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endif %}
-                {% if sponsors.silver %}
-                    <div class="row sponsor-level">
-                        <div class="col-lg-10 col-lg-offset-1">
-                            <div class="level-heading">Silver Level</div>
-                            <div id="sponsors-silver">
-                                {% for sponsor in sponsors.silver %}
-                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
-                                {% endfor %}
+                    {% endif %}
+                    {% if sponsors.silver %}
+                        <div class="row sponsor-level">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <div class="level-heading">Silver Level</div>
+                                <div id="sponsors-silver">
+                                    {% for sponsor in sponsors.silver %}
+                                        {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endif %}
-                {% if sponsors.bronze %}
-                    <div class="row sponsor-level">
-                        <div class="col-lg-10 col-lg-offset-1">
-                            <div class="level-heading">Bronze Level</div>
-                            <div id="sponsors-bronze">
-                                {% for sponsor in sponsors.bronze %}
-                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
-                                {% endfor %}
+                    {% endif %}
+                    {% if sponsors.bronze %}
+                        <div class="row sponsor-level">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <div class="level-heading">Bronze Level</div>
+                                <div id="sponsors-bronze">
+                                    {% for sponsor in sponsors.bronze %}
+                                        {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endif %}
-                {% if sponsors.iron %}
-                    <div class="row sponsor-level">
-                        <div class="col-lg-10 col-lg-offset-1">
-                            <div class="level-heading">Iron Level</div>
-                            <div id="sponsors-iron">
-                                {% for sponsor in iron.bronze %}
-                                    {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
-                                {% endfor %}
+                    {% endif %}
+                    {% if sponsors.iron %}
+                        <div class="row sponsor-level">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                <div class="level-heading">Iron Level</div>
+                                <div id="sponsors-iron">
+                                    {% for sponsor in iron.bronze %}
+                                        {{ sponsor.name }}{% if not forloop.last %} &bull; {% endif %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endif %}
+                    {% endif %}
 
-                <div id="become-a-sponsor">Become a Sponsor</div>
-                <p class="text-center" id="sponsor-blurb">Support the Waco High Boys Soccer Program and help us become the premiere soccer program in the state.</p>
-                <p class="text-center">
-                    <a class="btn btn-primary" href="{% url 'sponsor' %}" id="sponsor-button">Click Here for Sponsorship Info</a>
-                </p>
+                    <div id="become-a-sponsor">Become a Sponsor</div>
+                    <p class="text-center" id="sponsor-blurb">Support the Waco High Boys Soccer Program and help us become the premiere soccer program in the state.</p>
+                    <p class="text-center">
+                        <a class="btn btn-primary" href="{% url 'sponsor' %}" id="sponsor-button">Click Here for Sponsorship Info</a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
