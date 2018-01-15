@@ -1,17 +1,17 @@
 #varsity {
-    background: #eeeeee;
+    background: #f6f6f6;
 }
 
 #jv {
-    background: #ffffff;
-}
-
-#freshman {
     background: #eeeeee;
 }
 
+#freshman {
+    background: #f6f6f6;
+}
+
 #freshman-red {
-    background: #ffffff;
+    background: #eeeeee;
 }
 
 .player-card {
