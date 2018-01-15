@@ -117,10 +117,34 @@ body {
 /* MAIN CONTENT */
 
 #main-content {
-    top: 70vh;
+    top: 50vh;
     position: relative;
     z-index: 750;
 }
+
+#page-title {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 48px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 0 0 20px #000000;
+    width: calc(100% - 20px);
+}
+
+    @media(min-width: 768px) {
+        #page-title {
+            font-size: 72px;
+            line-height: inherit;
+            padding-bottom: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
 
 /* GENERAL */
 
@@ -151,7 +175,7 @@ a:hover {
 
 .section-title {
     color: #c30303;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 600;
     margin-bottom: 35px;
     text-align: center;
@@ -203,6 +227,7 @@ a:hover {
         }
 
         .section-title {
+            font-size: 36px;
             text-align: right;
         }
 

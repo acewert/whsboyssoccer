@@ -6,10 +6,11 @@
     <link href="{% static 'styles/home.css' %}?8" rel="stylesheet" type="text/css">
 {% endblock %}
 
+{% block page-title %}#VamosLeones{% endblock %}
+
 {% block body %}
     <div class="section-clip">
         <div class="section" id="latest-news">
-            <div class="section-title">Latest News</div>
             {% for post in posts %}
                 <div class="row post">
                     <div class="col-sm-9">

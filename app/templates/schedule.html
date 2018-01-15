@@ -6,10 +6,11 @@
     <link href="{% static 'styles/schedule.css' %}?2" rel="stylesheet" type="text/css">
 {% endblock %}
 
+{% block page-title %}2018 Schedule{% endblock %}
+
 {% block body %}
     <div class="section-clip">
         <div class="section" id="schedule" ng-init="selectedSquad = 'varsity'" ng-cloak>
-            <div class="section-title">2018 Schedule</div>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="btn-group btn-group-justified" id="squad-selector">

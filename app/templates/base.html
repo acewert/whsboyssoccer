@@ -11,7 +11,7 @@
         <title>Waco High School Boys Soccer</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="{% static 'styles/base.css' %}?4" rel="stylesheet" type="text/css">
+        <link href="{% static 'styles/base.css' %}?5" rel="stylesheet" type="text/css">
         <link href="{% static 'icons/favicon.png' %}" rel="icon" type="image/png">
         {% block styles %}{% endblock %}
     </head>
@@ -42,6 +42,9 @@
             </div>
         </nav>
         <div id="main-content">
+            <div id="page-title">
+                {% block page-title %}{% endblock %}
+            </div>
             {% block body %}{% endblock %}
             <div class="section-clip">
                 <div class="section" id="follow-us">
