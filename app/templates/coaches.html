@@ -8,25 +8,27 @@
 
 {% block body %}
     {% for coach in coaches %}
-        <div class="row before-slant-clip slant-clip {% cycle 'odd-section' 'even-section' %}">
-            <div class="col-xs-12">
-                <div class="inner-container">
-                    <h2 class="section-title right-section-title">{{ coach.first_name }} {{ coach.last_name }}</h2>
-                    <h4 class="section-title right-section-title">{{ coach.title }}</h4>
-                    <div class="bio">
-                        {% if coach.photo %}
-                            <img class="photo" src="{{ coach.photo.url }}">
-                        {% endif %}
-                        {{ coach.bio | safe }}
-                    </div>
-                    {% if coach.email_address %}
-                        <div class="btn-email">
-                            <a class="btn btn-primary btn-lg" href="mailto:{{ coach.email_address }}">
-                                <i class="fa fa-envelope-o fa-fw"></i>
-                                Email Coach {{ coach.last_name }}
-                            </a>
+        <div class="section-clip">
+            <div class="section {% cycle 'odd-section' 'even-section' %}">
+                <div class="section-title">{{ coach.first_name }} {{ coach.last_name }}</div>
+                <div class="section-subtitle">{{ coach.title }}</div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="bio">
+                            {% if coach.photo %}
+                                <img class="photo" src="{{ coach.photo.url }}">
+                            {% endif %}
+                            {{ coach.bio | safe }}
                         </div>
-                    {% endif %}
+                        {% if coach.email_address %}
+                            <div class="btn-email">
+                                <a class="btn btn-primary btn-lg" href="mailto:{{ coach.email_address }}">
+                                    <i class="fa fa-envelope-o fa-fw"></i>
+                                    Email Coach {{ coach.last_name }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
