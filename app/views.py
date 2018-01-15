@@ -53,7 +53,7 @@ def home(request):
 
     context = {
         'splash': 'images/splash-home.jpg',
-        'splash_position': 'center',
+        'splash_position': 'bottom',
         'posts': posts,
         'sponsors': sponsors,
     }
@@ -97,7 +97,7 @@ def coaches(request):
     context = {
         'coaches': coaches
     }
-    
+
     context.update(random_splash())
 
     return render(request, 'coaches.html', context)
