@@ -9,7 +9,8 @@
 .post-image {
     display: block;
     margin: 0 auto 10px auto;
-    max-width: 100%;
+    max-width: 350px;
+    width: 100%;
 }
 
 .post-date {
@@ -66,13 +67,6 @@
         .post-title {
             margin-left: 90px;
             text-align: left;
-        }
-
-        .post-image {
-            float: right;
-            margin: 0 0px 10px 10px;
-            max-width: 50%;
-            width: 300px;
         }
 
         .post-body {
