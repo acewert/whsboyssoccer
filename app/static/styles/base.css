@@ -124,16 +124,15 @@ body {
 
 #page-title {
     color: #ffffff;
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 600;
     line-height: 48px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1100px;
     padding-bottom: 40px;
     padding-left: 10px;
     padding-right: 10px;
     text-shadow: 0 0 20px #000000;
-    width: calc(100% - 20px);
 }
 
     @media(min-width: 768px) {
@@ -143,6 +142,7 @@ body {
             padding-bottom: 30px;
             padding-left: 20px;
             padding-right: 20px;
+            width: calc(100% - 50px);
         }
     }
 
@@ -165,12 +165,11 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     margin-top: -25px;
-    max-width: 1200px;
+    max-width: 1100px;
     padding-bottom: 50px;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 50px;
-    width: calc(100% - 20px);
 }
 
 .section-title {
@@ -224,6 +223,7 @@ a:hover {
             padding-left: 50px;
             padding-right: 50px;
             padding-top: 75px;
+            width: calc(100% - 50px);
         }
 
         .section-title {
