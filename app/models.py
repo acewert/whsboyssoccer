@@ -2,7 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-__all__ = ['Coach', 'Game', 'Link', 'Player', 'Post', 'SeniorSpotlight', 'Sponsor']
+__all__ = ['Coach', 'Game', 'Link', 'Player', 'Post', 'SeniorSpotlight',
+           'Settings', 'Sponsor']
 
 
 class Coach(models.Model):
@@ -147,6 +148,13 @@ class SeniorSpotlight(models.Model):
             qs.update(active=False)
 
         super().save(*args, **kwargs)
+
+
+class Settings(models.Model):
+    imgur_client_id = models.CharField(max_length=255)
+    imgur_client_secret = models.CharField(max_length=255)
+    imgur_access_token = models.CharField(max_length=255)
+    imgur_refresh_token = models.CharField(max_length=255)
 
 
 class Sponsor(models.Model):
