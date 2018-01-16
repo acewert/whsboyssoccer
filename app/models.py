@@ -156,6 +156,9 @@ class Settings(models.Model):
     imgur_access_token = models.CharField(max_length=255, blank=True)
     imgur_refresh_token = models.CharField(max_length=255, blank=True)
     imgur_token_type = models.CharField(max_length=255, blank=True)
+    imgur_token_expires = models.DateTimeField(null=True)
+    imgur_account_id = models.CharField(max_length=255, blank=True)
+    imgur_account_username = models.CharField(max_length=255, blank=True)
 
 
 class Sponsor(models.Model):
