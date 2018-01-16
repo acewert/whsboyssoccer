@@ -14,18 +14,19 @@ __all__ = [
 
 def random_splash():
     SPLASH_IMAGES = [
-        (9001, 'left 40% top 20%'),
-        (9018, 'left 50% top 10%'),
-        (9041, 'left 50% top 25%'),
-        (9044, 'left 50% top 40%'),
-        (9071, 'left 50% top 5%'),
-        (9072, 'left 50% top 10%'),
-        (9103, 'left 30% top 35%'),
-        (9124, 'left 75% top'),
-        (9180, 'left 40% top 20%'),
-        (9196, 'left 50% top 30%'),
-        (9269, 'left 40% top 65%'),
-        (9346, 'left 50% top 25%'),
+        ('0109', 'left 50% top 75%'),
+        ('9001', 'left 40% top 20%'),
+        ('9018', 'left 50% top 10%'),
+        ('9041', 'left 50% top 25%'),
+        ('9044', 'left 50% top 50%'),
+        ('9071', 'left 50% top 5%'),
+        ('9072', 'left 50% top 10%'),
+        ('9103', 'left 30% top 50%'),
+        ('9124', 'left 75% top'),
+        ('9180', 'left 40% top 20%'),
+        ('9196', 'left 50% top 30%'),
+        ('9269', 'left 40% top 85%'),
+        ('9346', 'left 50% top 25%'),
     ]
 
     img, pos = random.choice(SPLASH_IMAGES)
@@ -52,11 +53,11 @@ def home(request):
         sponsors[sponsor.get_level_display().lower()].append(sponsor)
 
     context = {
-        'splash': 'images/splash-home.jpg',
-        'splash_position': 'bottom',
         'posts': posts,
         'sponsors': sponsors,
     }
+
+    context.update(random_splash())
 
     return render(request, 'home.html', context)
 

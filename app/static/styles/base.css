@@ -38,7 +38,7 @@ body {
     background-size: cover;
         -webkit-clip-path: polygon(0 25px, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(0 25px, 100% 0, 100% 100%, 0 100%);
-    height: calc(100vh - 75px);
+    height: calc(50vh + 61px);
     left: 0;
     position: fixed;
     top: 75px;
@@ -50,6 +50,7 @@ body {
         #splash {
                 -webkit-clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
             clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
+            height: calc(100vh - 75px);
         }
     }
 
