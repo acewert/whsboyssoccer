@@ -3,6 +3,7 @@ import random
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils import timezone
 
 from .models import *
 
@@ -111,9 +112,21 @@ def oauth(request):
 
     if request.method == 'POST':
         settings = Settings.objects.first()
+
         settings.imgur_access_token = request.POST.get('access_token', '')
         settings.imgur_refresh_token = request.POST.get('refresh_token', '')
         settings.imgur_token_type = request.POST.get('token_type', '')
+        settings.imgur_account_id = request.POST.get('account_id', '')
+        settings.imgur_account_username = request.POST.get(
+            'account_username', ''
+        )
+
+        expires_in = request.POST.get('expires_in', '')
+
+        if expires_in:
+            ttl = timezone.timedelta(seconds=int(expires_in))
+            settings.imgur_token_expires = timezone.now() + ttl
+
         settings.save()
 
         return HttpResponse('')
