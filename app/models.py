@@ -155,6 +155,7 @@ class Settings(models.Model):
     imgur_client_secret = models.CharField(max_length=255, blank=True)
     imgur_access_token = models.CharField(max_length=255, blank=True)
     imgur_refresh_token = models.CharField(max_length=255, blank=True)
+    imgur_token_type = models.CharField(max_length=255, blank=True)
 
 
 class Sponsor(models.Model):
