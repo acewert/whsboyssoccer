@@ -151,10 +151,10 @@ class SeniorSpotlight(models.Model):
 
 
 class Settings(models.Model):
-    imgur_client_id = models.CharField(max_length=255)
-    imgur_client_secret = models.CharField(max_length=255)
-    imgur_access_token = models.CharField(max_length=255)
-    imgur_refresh_token = models.CharField(max_length=255)
+    imgur_client_id = models.CharField(max_length=255, blank=True)
+    imgur_client_secret = models.CharField(max_length=255, blank=True)
+    imgur_access_token = models.CharField(max_length=255, blank=True)
+    imgur_refresh_token = models.CharField(max_length=255, blank=True)
 
 
 class Sponsor(models.Model):
