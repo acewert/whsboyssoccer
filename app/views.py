@@ -1,6 +1,7 @@
 import random
 
 from django.core.paginator import Paginator
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import *
@@ -102,6 +103,20 @@ def history(request):
     context = random_splash()
 
     return render(request, 'history.html', context)
+
+
+def oauth(request):
+    if request.method == 'GET':
+        return render(request, 'oauth.html')
+
+    if request.method == 'POST':
+        settings = Settings.objects.first()
+        settings.imgur_access_token = request.POST.get('access_token', '')
+        settings.imgur_refresh_token = request.POST.get('refresh_token', '')
+        settings.imgur_token_type = request.POST.get('token_type', '')
+        settings.save()
+
+        return HttpResponse('')
 
 
 def photos(request):
