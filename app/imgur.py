@@ -23,7 +23,7 @@ class ImgurModel:
         url = cls.url(settings)
         headers = cls.headers(settings)
         response = requests.get(url, headers=headers)
-        return response.json()
+        return [cls(**d) for d in response['data']]
 
     @classmethod
     def url(cls, settings):
@@ -35,7 +35,19 @@ class ImgurModel:
 
         return cls.BASE_URL + path
 
+    def __init__(**data):
+        self.__dict__.update(data)
+
+    def url(self, settings):
+        path = cls.ITEM_PATH
+
+        if ':id/' in path:
+            idno = '{0}/'.format(self.id)
+            path = path.replace(':id/', idno)
+
+        return cls.BASE_URL + path
+
 
 class Album(ImgurModel):
     COLLECTION_PATH = 'account/:account_username/albums/'
-    ITEM_PATH = 'album/:'
+    ITEM_PATH = 'album/:id/'
