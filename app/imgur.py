@@ -23,7 +23,7 @@ class ImgurModel:
         url = cls.collection_url(settings)
         headers = cls.headers(settings)
         response = requests.get(url, headers=headers)
-        return response.json()['data']
+        return response
 
     @classmethod
     def collection_url(cls, settings):
