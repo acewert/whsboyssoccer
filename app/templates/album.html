@@ -5,7 +5,7 @@
 {% block html-tag %}<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml" ng-app="app">{% endblock %}
 
 {% block styles %}
-    <link href="{% static 'styles/photos.css' %}?3" rel="stylesheet" type="text/css">
+    <link href="{% static 'styles/album.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'photoswipe/photoswipe.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'photoswipe/default-skin/default-skin.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
@@ -51,7 +51,7 @@
 
 {% block body %}
     <div class="section-clip" ng-controller="AlbumCtrl as ctrl">
-        <div class="section" id="photos">
+        <div class="section" id="album">
             <div class="row">
                 <div class="col-sm-3">
                     <ul class="pager">
@@ -62,10 +62,10 @@
                     <div class="section-title">{{ album.title }}</div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="album-row">
                 {% verbatim %}
                     <div class="col-sm-3 col-xs-4" ng-repeat="image in ctrl.images">
-                        <a href class="thumbnail" ng-click="ctrl.open($index)">
+                        <a href class="image-thumbnail" ng-click="ctrl.open($index)">
                             <img ng-src="{{ image.bigSquare }}">
                         </a>
                     </div>
