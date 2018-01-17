@@ -20,13 +20,13 @@ class ImgurModel:
     @classmethod
     def query(cls):
         settings = Settings.objects.first()
-        url = cls.url(settings)
+        url = cls.collection_url(settings)
         headers = cls.headers(settings)
         response = requests.get(url, headers=headers)
         return [cls(**d) for d in response['data']]
 
     @classmethod
-    def url(cls, settings):
+    def collection_url(cls, settings):
         path = cls.COLLECTION_PATH
 
         if ':account_username/' in path:
@@ -38,8 +38,8 @@ class ImgurModel:
     def __init__(**data):
         self.__dict__.update(data)
 
-    def url(self, settings):
-        path = cls.ITEM_PATH
+    def item_url(self, settings):
+        path = self.ITEM_PATH
 
         if ':id/' in path:
             idno = '{0}/'.format(self.id)
