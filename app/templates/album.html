@@ -91,7 +91,7 @@
                             w: {{ image.width }},
                             h: {{ image.height }},
                             bigSquare: '{{ image.big_square | escapejs }}',
-                            title: '{{ image.title | escapejs }}'
+                            title: '{{ image.title | default_if_none:'' | escapejs }}'
                         }
                         {% if not forloop.last %},{% endif %}
                     {% endfor %}
