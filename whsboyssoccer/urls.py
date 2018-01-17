@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^history/$', views.history, name='history'),
     url(r'^oauth/$', views.oauth, name='oauth'),
     url(r'^photos/$', views.photos, name='photos'),
+    url(r'^photos/(?P<pk>[A-Za-z0-9]+)/$', views.album, name='album'),
     url(r'^posts/$', views.posts, name='posts'),
     url(r'^roster/$', views.roster, name='roster'),
     url(r'^schedule/$', views.schedule, name='schedule'),

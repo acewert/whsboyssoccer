@@ -1,10 +1,11 @@
 import random
 
 from django.core.paginator import Paginator
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from django.utils import timezone
 
+from .imgur import *
 from .models import *
 
 
@@ -133,9 +134,30 @@ def oauth(request):
 
 
 def photos(request):
-    context = random_splash()
+    albums = Album.objects.select_related('cover')
+
+    context = {'albums': albums}
+    context.update(random_splash())
 
     return render(request, 'photos.html', context)
+
+
+def album(request, pk):
+    try:
+        album = Album.objects.get(pk=pk)
+    except Album.DoesNotExist:
+        raise Http404
+
+    images = album.images.all()
+
+    context = {
+        'album': album,
+        'images': images,
+    }
+
+    context.update(random_splash())
+
+    return render(request, 'album.html', context)
 
 
 def posts(request):

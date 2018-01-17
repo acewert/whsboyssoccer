@@ -1,7 +1,7 @@
 {% load static %}
 
 <!doctype html>
-<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml" ng-app>
+{% block html-tag %}<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml" ng-app>{% endblock %}
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Language" content="en">
@@ -11,14 +11,15 @@
         <title>Waco High School Boys Soccer</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="{% static 'styles/base.css' %}?7" rel="stylesheet" type="text/css">
+        <link href="{% static 'styles/base.css' %}?8" rel="stylesheet" type="text/css">
         <link href="{% static 'icons/favicon.png' %}" rel="icon" type="image/png">
         {% block styles %}{% endblock %}
     </head>
     <body>
+        {% block body-root %}{% endblock %}
         <div id="splash" style="background-image: url('{% static splash %}'); background-position: {{ splash_position }};"></div>
         <a href="{% url 'home' %}" id="logo">
-            <img src="{% static 'images/shield.png' %}">
+            <img class="img-responsive" src="{% static 'images/shield.png' %}">
         </a>
         <nav class="navbar navbar-fixed-top">
             <div class="container-fluid">

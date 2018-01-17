@@ -1,3 +1,31 @@
 #photos {
     background: #f6f6f6;
 }
+
+.thumbnail {
+	cursor: pointer;
+}
+
+a.thumbnail:hover {
+	border-color: #db1718;
+	text-decoration: none;
+}
+
+.thumbnail img {
+	width: 100%;
+}
+
+.thumbnail .caption {
+	box-sizing: content-box;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.1em;
+	min-height: 2.2em;
+	text-align: center;
+}
+
+	@media(min-width: 992px) {
+		.thumbnail .caption {
+			font-size: 18px;
+		}
+	}
