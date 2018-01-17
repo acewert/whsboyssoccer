@@ -31,7 +31,7 @@ class ImgurModel:
 
         if ':account_username/' in path:
             account_username = '{0}/'.format(settings.imgur_account_username)
-            path.replace(':account_username/', account_username)
+            path = path.replace(':account_username/', account_username)
 
         return cls.BASE_URL + path
 
