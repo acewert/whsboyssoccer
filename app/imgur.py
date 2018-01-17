@@ -33,7 +33,7 @@ class ImgurModel:
             account_username = '{0}/'.format(settings.imgur_account_username)
             path.replace(':account_username/', account_username)
 
-        return path
+        return cls.BASE_URL + path
 
 
 class Album(ImgurModel):
