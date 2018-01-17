@@ -52,3 +52,8 @@ class ImgurModel:
 class Album(ImgurModel):
     COLLECTION_PATH = 'account/:account_username/albums/'
     ITEM_PATH = 'album/:id/'
+
+
+class Image(ImgurModel):
+    COLLECTION_PATH = 'account/:account_username/images/'
+    ITEM_PATH = 'image/:id/'
