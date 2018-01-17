@@ -36,7 +36,7 @@ class ImgurModel:
 
         return cls.BASE_URL + path
 
-    def __init__(**data):
+    def __init__(self, **data):
         self.__dict__.update(data)
 
     def item_url(self, settings):
