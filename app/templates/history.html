@@ -10,6 +10,244 @@
 
 {% block body %}
     <div class="section-clip">
+        <div class="section" id="school-records">
+            <div class="section-title">School Record Holders</div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row text-muted">
+                                <div class="col-xs-2"><h5><i class="fa fa-trophy fa-lg fa-fw"></i></h5></div>
+                                <div class="col-xs-8"><h5 class="text-center">{{ records.CAREER_ASSISTS.verbose_name }}</h5></div>
+                                <div class="col-xs-2"><h5 class="text-right"><i class="fa fa-trophy fa-lg fa-fw"></i></h5></div>
+                            </div>
+                            {% for entry in records.CAREER_ASSISTS.entries %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 col-xs-6"><b>{{ entry.player | upper }}</b></div>
+                                    <div class="col-lg-2 col-sm-3 col-xs-2">{{ entry.record }}</div>
+                                    <div class="col-lg-4 col-sm-9 col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.CAREER_GOALS.verbose_name }}</h5>
+                            {% for entry in records.CAREER_GOALS.entries %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 col-xs-6"><b>{{ entry.player | upper }}</b></div>
+                                    <div class="col-lg-2 col-sm-3 col-xs-2">{{ entry.record }}</div>
+                                    <div class="col-lg-4 col-sm-9 col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.CAREER_SAVES.verbose_name }}</h5>
+                            {% for entry in records.CAREER_SAVES.entries %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 col-xs-6"><b>{{ entry.player | upper }}</b></div>
+                                    <div class="col-lg-2 col-sm-3 col-xs-2">{{ entry.record }}</div>
+                                    <div class="col-lg-4 col-sm-9 col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.SEASON_ASSISTS.verbose_name }}</h5>
+                            {% for entry in records.SEASON_ASSISTS.entries %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 col-xs-6"><b>{{ entry.player | upper }}</b></div>
+                                    <div class="col-lg-2 col-sm-3 col-xs-2">{{ entry.record }}</div>
+                                    <div class="col-lg-4 col-sm-9 col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.SEASON_GOALS.verbose_name }}</h5>
+                            {% for entry in records.SEASON_GOALS.entries %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 col-xs-6"><b>{{ entry.player | upper }}</b></div>
+                                    <div class="col-lg-2 col-sm-3 col-xs-2">{{ entry.record }}</div>
+                                    <div class="col-lg-4 col-sm-9 col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.SEASON_SAVES.verbose_name }}</h5>
+                            {% for entry in records.SEASON_SAVES.entries %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 col-xs-6"><b>{{ entry.player | upper }}</b></div>
+                                    <div class="col-lg-2 col-sm-3 col-xs-2">{{ entry.record }}</div>
+                                    <div class="col-lg-4 col-sm-9 col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.GAME_ASSISTS.verbose_name }}</h5>
+                            {% for entry in records.GAME_ASSISTS.entries %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 col-xs-6"><b>{{ entry.player | upper }}</b></div>
+                                    <div class="col-lg-2 col-sm-3 col-xs-2">{{ entry.record }}</div>
+                                    <div class="col-lg-4 col-sm-9 col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.GAME_GOALS.verbose_name }}</h5>
+                            {% for entry in records.GAME_GOALS.entries %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 col-xs-6"><b>{{ entry.player | upper }}</b></div>
+                                    <div class="col-lg-2 col-sm-3 col-xs-2">{{ entry.record }}</div>
+                                    <div class="col-lg-4 col-sm-9 col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.GAME_SAVES.verbose_name }}</h5>
+                            {% for entry in records.GAME_SAVES.entries %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 col-xs-6"><b>{{ entry.player | upper }}</b></div>
+                                    <div class="col-lg-2 col-sm-3 col-xs-2">{{ entry.record }}</div>
+                                    <div class="col-lg-4 col-sm-9 col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.WINNING_STREAK.verbose_name }}</h5>
+                            {% for entry in records.WINNING_STREAK.entries %}
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        {% if forloop.first %}
+                                            <b>{{ entry.record | upper }}</b>
+                                        {% else %}
+                                            &nbsp;
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.SEASON_WINS.verbose_name }}</h5>
+                            {% for entry in records.SEASON_WINS.entries %}
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        {% if forloop.first %}
+                                            <b>{{ entry.record | upper }}</b>
+                                        {% else %}
+                                            &nbsp;
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.SHUTOUTS.verbose_name }}</h5>
+                            {% for entry in records.SHUTOUTS.entries %}
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        {% if forloop.first %}
+                                            <b>{{ entry.record | upper }}</b>
+                                        {% else %}
+                                            &nbsp;
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h5 class="text-muted text-center">{{ records.PLAYOFF_APPEARANCE.verbose_name }}</h5>
+                            {% for entry in records.PLAYOFF_APPEARANCE.entries %}
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        {% if forloop.first %}
+                                            <b>{{ entry.record | upper }}</b>
+                                        {% else %}
+                                            &nbsp;
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-xs-4 text-right">{{ entry.season }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-clip">
+        <div class="section" id="hardware-2018">
+            <div class="section-title">2018 Hardware</div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="half-column">
+                        <li>2018 Temple Wildcat Classic Varsity Champs</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul>
+                        <li>2018 Alvarado JV Tournament Champs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-clip">
         <div class="section" id="hardware-2017">
             <div class="section-title">2017 Hardware</div>
             <div class="row">

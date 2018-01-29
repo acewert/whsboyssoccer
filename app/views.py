@@ -143,7 +143,32 @@ def coaches(request):
 
 
 def history(request):
-    context = random_splash()
+    categories = {
+        key: value
+        for key, value in vars(SchoolRecord.categories).items()
+        if not key.startswith('__')
+    }
+
+    reverse_categories = {
+        value: key
+        for key, value in categories.items()
+    }
+
+    verbose = dict(SchoolRecord.CATEGORY_CHOICES)
+
+    records = {
+        key: {
+            'verbose_name': verbose[value],
+            'entries': [],
+        }
+        for key, value in categories.items()
+    }
+
+    for record in SchoolRecord.objects.order_by('season'):
+        records[reverse_categories[record.category]]['entries'].append(record)
+
+    context = {'records': records}
+    context.update(random_splash())
 
     return render(request, 'history.html', context)
 

@@ -50,6 +50,10 @@ class PostAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
+class SchoolRecordAdmin(admin.ModelAdmin):
+    list_display = ('category', 'player', 'record', 'season')
+
+
 class SeniorSpotlightAdminForm(forms.ModelForm):
     bio = forms.CharField(widget=CKEditorWidget())
 
@@ -66,4 +70,5 @@ admin.site.register(Coach, CoachAdmin)
 admin.site.register(Game, GameAdmin)
 admin.site.register(Player, PlayerAdmin)
 admin.site.register(Post, PostAdmin)
+admin.site.register(SchoolRecord, SchoolRecordAdmin)
 admin.site.register(Sponsor)
