@@ -86,7 +86,45 @@ def roster(request):
 def schedule(request):
     games = Game.objects.order_by('date')
 
-    context = {'games': games}
+    squads = {
+        Game.squads.VARSITY: 'varsity',
+        Game.squads.JV: 'jv',
+        Game.squads.FRESHMAN: 'freshman',
+        Game.squads.FRESHMAN_RED: 'freshman red',
+    }
+
+    records = {
+        squad: {
+            'wins': 0,
+            'ties': 0,
+            'losses': 0,
+            'goals_scored': 0,
+            'goals_against': 0,
+            'goal_differential': 0,        
+        } for squad in squads.values()
+    }
+
+    for game in games:
+        if game.whs_score is not None and game.opponent_score is not None:
+            squad = squads[game.squad]
+
+            records[squad]['goals_scored'] += game.whs_score
+            records[squad]['goal_differential'] += game.whs_score
+            records[squad]['goals_against'] += game.opponent_score
+            records[squad]['goal_differential'] -= game.opponent_score
+
+            if game.whs_score > game.opponent_score:
+                records[squad]['wins'] += 1
+            elif game.whs_score == game.opponent_score:
+                records[squad]['ties'] += 1
+            else:
+                records[squad]['losses'] += 1
+
+    context = {
+        'games': games,
+        'records': records,
+    }
+
     context.update(random_splash())
 
     return render(request, 'schedule.html', context)
@@ -95,8 +133,11 @@ def schedule(request):
 def coaches(request):
     coaches = Coach.objects.order_by('ordering')
 
-    context = {'coaches': coaches}
-    context.update(random_splash())
+    context = {
+        'coaches': coaches,
+        'splash': 'images/splash-coaches.jpg',
+        'splash_position': 'left 50% top',
+    }
 
     return render(request, 'coaches.html', context)
 
