@@ -143,31 +143,46 @@ def coaches(request):
 
 
 def history(request):
-    categories = {
-        key: value
-        for key, value in vars(SchoolRecord.categories).items()
-        if not key.startswith('__')
-    }
-
-    reverse_categories = {
-        value: key
-        for key, value in categories.items()
-    }
-
-    verbose = dict(SchoolRecord.CATEGORY_CHOICES)
+    categories = SchoolRecord.categories
+    titles = dict(SchoolRecord.CATEGORY_CHOICES)
 
     records = {
-        key: {
-            'verbose_name': verbose[value],
+        category: {
+            'title': titles[category],
             'entries': [],
-        }
-        for key, value in categories.items()
+        } for category in [
+            value for key, value in vars(categories).items()
+            if not key.startswith('__')
+        ]
     }
 
     for record in SchoolRecord.objects.order_by('season'):
-        records[reverse_categories[record.category]]['entries'].append(record)
+        records[record.category]['entries'].append(record)
 
-    context = {'records': records}
+    context = {
+        'individual_categories': [
+            records[c] for c in [
+                categories.CAREER_ASSISTS,
+                categories.CAREER_GOALS,
+                categories.CAREER_SAVES,
+                categories.SEASON_ASSISTS,
+                categories.SEASON_GOALS,
+                categories.SEASON_SAVES,
+                categories.GAME_ASSISTS,
+                categories.GAME_GOALS,
+                categories.GAME_SAVES,
+            ]
+        ],
+        'team_categories': [
+            records[c] for c in [
+                categories.WINNING_STREAK,
+                categories.SEASON_WINS,
+                categories.SHUTOUTS,
+            ]
+        ],
+        'playoff_appearance': records[categories.PLAYOFF_APPEARANCE],
+    }
+    
     context.update(random_splash())
 
     return render(request, 'history.html', context)
