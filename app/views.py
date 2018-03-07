@@ -1,6 +1,7 @@
 import random
 
 from django.core.paginator import Paginator
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import *
@@ -8,7 +9,7 @@ from .models import *
 
 __all__ = [
     'home', 'roster', 'schedule', 'coaches', 'history', 'photos', 'posts',
-    'sponsor',
+    'sponsor', 'challenge',
 ]
 
 
@@ -136,3 +137,6 @@ def sponsor(request):
     context = random_splash()
 
     return render(request, 'sponsor.html', context)
+
+def challenge(request):
+    return HttpResponse('ok00pmHWki91aAmpmnXyIbs4M4LVc6wvMoGAtrsQMiw.KOvf6aG9RR46f2P5kMKe9frYK49R3a2Y5gEGrIDAtQk')

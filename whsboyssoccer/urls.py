@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^photos/$', views.photos, name='photos'),
     url(r'^posts/$', views.posts, name='posts'),
     url(r'^sponsor/$', views.sponsor, name='sponsor'),
+    url(r'^\.well-known/acme-challenge/ok00pmHWki91aAmpmnXyIbs4M4LVc6wvMoGAtrsQMiw$', views.challenge, name='challenge'),
 ]
 
 if settings.DEBUG:
