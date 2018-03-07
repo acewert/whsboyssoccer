@@ -1,9 +1,11 @@
 import random
 
 from django.core.paginator import Paginator
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
+from django.utils import timezone
 
+from .imgur import *
 from .models import *
 
 
@@ -84,7 +86,45 @@ def roster(request):
 def schedule(request):
     games = Game.objects.order_by('date')
 
-    context = {'games': games}
+    squads = {
+        Game.squads.VARSITY: 'varsity',
+        Game.squads.JV: 'jv',
+        Game.squads.FRESHMAN: 'freshman',
+        Game.squads.FRESHMAN_RED: 'freshman red',
+    }
+
+    records = {
+        squad: {
+            'wins': 0,
+            'ties': 0,
+            'losses': 0,
+            'goals_scored': 0,
+            'goals_against': 0,
+            'goal_differential': 0,        
+        } for squad in squads.values()
+    }
+
+    for game in games:
+        if game.whs_score is not None and game.opponent_score is not None:
+            squad = squads[game.squad]
+
+            records[squad]['goals_scored'] += game.whs_score
+            records[squad]['goal_differential'] += game.whs_score
+            records[squad]['goals_against'] += game.opponent_score
+            records[squad]['goal_differential'] -= game.opponent_score
+
+            if game.whs_score > game.opponent_score:
+                records[squad]['wins'] += 1
+            elif game.whs_score == game.opponent_score:
+                records[squad]['ties'] += 1
+            else:
+                records[squad]['losses'] += 1
+
+    context = {
+        'games': games,
+        'records': records,
+    }
+
     context.update(random_splash())
 
     return render(request, 'schedule.html', context)
@@ -93,22 +133,112 @@ def schedule(request):
 def coaches(request):
     coaches = Coach.objects.order_by('ordering')
 
-    context = {'coaches': coaches}
-    context.update(random_splash())
+    context = {
+        'coaches': coaches,
+        'splash': 'images/splash-coaches.jpg',
+        'splash_position': 'left 50% top',
+    }
 
     return render(request, 'coaches.html', context)
 
 
 def history(request):
-    context = random_splash()
+    categories = SchoolRecord.categories
+    titles = dict(SchoolRecord.CATEGORY_CHOICES)
+
+    records = {
+        category: {
+            'title': titles[category],
+            'entries': [],
+        } for category in [
+            value for key, value in vars(categories).items()
+            if not key.startswith('__')
+        ]
+    }
+
+    for record in SchoolRecord.objects.order_by('season'):
+        records[record.category]['entries'].append(record)
+
+    context = {
+        'individual_categories': [
+            records[c] for c in [
+                categories.CAREER_ASSISTS,
+                categories.CAREER_GOALS,
+                categories.CAREER_SAVES,
+                categories.SEASON_ASSISTS,
+                categories.SEASON_GOALS,
+                categories.SEASON_SAVES,
+                categories.GAME_ASSISTS,
+                categories.GAME_GOALS,
+                categories.GAME_SAVES,
+            ]
+        ],
+        'team_categories': [
+            records[c] for c in [
+                categories.WINNING_STREAK,
+                categories.SEASON_WINS,
+                categories.SHUTOUTS,
+            ]
+        ],
+        'playoff_appearance': records[categories.PLAYOFF_APPEARANCE],
+    }
+    
+    context.update(random_splash())
 
     return render(request, 'history.html', context)
 
 
+def oauth(request):
+    if request.method == 'GET':
+        return render(request, 'oauth.html')
+
+    if request.method == 'POST':
+        settings = Settings.objects.first()
+
+        settings.imgur_access_token = request.POST.get('access_token', '')
+        settings.imgur_refresh_token = request.POST.get('refresh_token', '')
+        settings.imgur_token_type = request.POST.get('token_type', '')
+        settings.imgur_account_id = request.POST.get('account_id', '')
+        settings.imgur_account_username = request.POST.get(
+            'account_username', ''
+        )
+
+        expires_in = request.POST.get('expires_in', '')
+
+        if expires_in:
+            ttl = timezone.timedelta(seconds=int(expires_in))
+            settings.imgur_token_expires = timezone.now() + ttl
+
+        settings.save()
+
+        return HttpResponse('')
+
+
 def photos(request):
-    context = random_splash()
+    albums = Album.objects.select_related('cover')
+
+    context = {'albums': albums}
+    context.update(random_splash())
 
     return render(request, 'photos.html', context)
+
+
+def album(request, pk):
+    try:
+        album = Album.objects.get(pk=pk)
+    except Album.DoesNotExist:
+        raise Http404
+
+    images = album.images.all()
+
+    context = {
+        'album': album,
+        'images': images,
+    }
+
+    context.update(random_splash())
+
+    return render(request, 'album.html', context)
 
 
 def posts(request):
@@ -137,6 +267,7 @@ def sponsor(request):
     context = random_splash()
 
     return render(request, 'sponsor.html', context)
+
 
 def challenge(request):
     return HttpResponse('ok00pmHWki91aAmpmnXyIbs4M4LVc6wvMoGAtrsQMiw.KOvf6aG9RR46f2P5kMKe9frYK49R3a2Y5gEGrIDAtQk')

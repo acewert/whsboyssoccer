@@ -27,6 +27,46 @@
                             <button class="btn btn-default" type="button" ng-class="{'btn-primary': selectedSquad == 'freshman red'}" ng-click="selectedSquad = 'freshman red'">Fr<span class="hidden-xs">eshmen</span> Red</button>
                         </div>
                     </div>
+                </div>
+            </div>
+            {% for squad, record in records.items %}
+                <div class="row text-center" ng-show="selectedSquad == '{{ squad }}'">
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h5 class="text-muted">Record</h5>
+                                <h1>{{ record.wins }}-{{ record.losses }}-{{ record.ties }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h5 class="text-muted">Goals Scored</h5>
+                                <h1>{{ record.goals_scored }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h5 class="text-muted">Goals Against</h5>
+                                <h1>{{ record.goals_against }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h5 class="text-muted">Goal Differential</h5>
+                                <h1>{% if record.goal_differential > 0 %}+{% endif %}{{ record.goal_differential }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-xs-12">
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>

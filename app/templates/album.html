@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block html-tag %}<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml" ng-app="app">{% endblock %}
+
+{% block styles %}
+    <link href="{% static 'styles/album.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'photoswipe/photoswipe.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'photoswipe/default-skin/default-skin.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block page-title %}Photos{% endblock %}
+
+{% block body-root %}
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                          <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div> 
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="section-clip" ng-controller="AlbumCtrl as ctrl">
+        <div class="section" id="album">
+            <div class="row">
+                <div class="col-sm-3">
+                    <ul class="pager">
+                        <li class="previous"><a href="{% url 'photos' %}">&larr; All Albums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9">
+                    <div class="section-title">{{ album.title }}</div>
+                </div>
+            </div>
+            <div class="row" id="album-row">
+                {% verbatim %}
+                    <div class="col-sm-3 col-xs-4" ng-repeat="image in ctrl.images">
+                        <a href class="image-thumbnail" ng-click="ctrl.open($index)">
+                            <img ng-src="{{ image.bigSquare }}">
+                        </a>
+                    </div>
+                {% endverbatim %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'photoswipe/photoswipe.min.js' %}"></script>
+    <script src="{% static 'photoswipe/photoswipe-ui-default.min.js' %}"></script>
+    <script>
+        var app = angular.module('app', []);
+
+        app.controller('AlbumCtrl', ['$window', function($window) {
+            this.init = function() {
+                this.images = [
+                    {% for image in images %}
+                        {
+                            pid: '{{ image.id | escapejs }}',
+                            src: '{{ image.link | escapejs }}',
+                            w: {{ image.width }},
+                            h: {{ image.height }},
+                            bigSquare: '{{ image.big_square | escapejs }}',
+                            title: '{{ image.title | default_if_none:'' | escapejs }}'
+                        }
+                        {% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ];
+
+                this.pswp = $('.pswp')[0];
+
+                // attempt to autoload a directly linked image
+                this.autoload();
+            };
+
+            this.autoload = function() {
+                var hash = $window.location.hash;
+
+                if (hash.length) {
+                    var pairs = hash.substr(1).split('&');
+
+                    for (var i = 0; i < pairs.length; i++) {
+                        var values = pairs[i].split('=');
+
+                        if (values[0] == 'pid') {
+                            var pid = decodeURIComponent(values[1]);
+
+                            for (var j = 0; j < this.images.length; j++) {
+                                if (this.images[j].pid == pid) {
+                                    this.open(j);
+                                    return;
+                                }
+                            }
+
+                            return;
+                        }
+                    }
+                }
+            };
+
+            this.open = function($index) {
+                var options = {
+                    closeOnScroll: false,
+                    galleryPIDs: true,
+                    index: $index,
+                    shareEl: false
+                };
+                var gallery = new PhotoSwipe(this.pswp, PhotoSwipeUI_Default, this.images, options);
+                gallery.init();
+            };
+
+            this.init();
+        }]);
+    </script>
+{% endblock %}
